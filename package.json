@@ -1,5 +1,5 @@
 {
-  "name": "project3_starter",
+  "name": "Gear_Out",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,13 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lelandcypress/Project3_starter.git"
+    "url": "git+https://github.com/lelandcypress/Gear_Out.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lelandcypress/Project3_starter/issues"
+    "url": "https://github.com/lelandcypress//Gear_Out/issues"
   },
-  "homepage": "https://github.com/lelandcypress/Project3_starter#readme"
+  "homepage": "https://github.com/lelandcypress//Gear_Out_starter#readme"
 }

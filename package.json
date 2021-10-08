@@ -23,5 +23,8 @@
   "homepage": "https://github.com/lelandcypress//Gear_Out_starter#readme",
   "devDependencies": {
     "concurrently": "^6.3.0"
+  },
+  "dependencies": {
+    "stripe": "^8.179.0"
   }
 }

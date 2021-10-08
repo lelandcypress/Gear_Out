@@ -35,6 +35,9 @@ const typeDefs = gql`
     orders: [Order]
     userRating: Rating
   }
+  type Checkout {
+    session: ID
+  }
   type Auth {
     token: ID!
     user: User
@@ -54,6 +57,7 @@ const typeDefs = gql`
     getOneItem: Items
     featuredItem: Items
     categorySearch: Items
+    checkout(items: [ID]!): Checkout
   }
 
   type Mutation {

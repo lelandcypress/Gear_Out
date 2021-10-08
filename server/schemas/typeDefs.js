@@ -19,9 +19,10 @@ const typeDefs = gql`
     vendor: String
     price: Number
     image: String
-    rating: Rating
+    rating: [Rating]
   }
   input itemToOrder {
+    _id: ID!
     name: String
     image: String
   }
@@ -54,6 +55,7 @@ const typeDefs = gql`
     featuredItem: Items
     categorySearch: Items
   }
+
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
 
@@ -63,9 +65,9 @@ const typeDefs = gql`
 
     returnItem(itemId: ID!): User
 
-    toggleAvailability(available: Boolean): Items
+    toggleAvailability(itemId: ID!): Items
 
-    createItemRating(itemReview: reviewInput): Items
+    createItemRating(itemId: ID!, itemReview: reviewInput!): Items
   }
 `;
 module.exports = typeDefs;

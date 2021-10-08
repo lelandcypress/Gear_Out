@@ -7,8 +7,19 @@ const orderSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
-  endDate: { type: Date, default: Date.now() + 7 },
+  endDate: Date,
   items: [Items],
+});
+
+// hash user password
+orderSchema.pre("save", async function (next) {
+  if (this.isNew) {
+    let dueByDate = new Date();
+    dueByDate.setDate(dueByDate.getDate() + 7);
+    this.endDate = dueByDate;
+  }
+
+  next();
 });
 
 const Order = model("Order", orderSchema);

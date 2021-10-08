@@ -4,8 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start":"node server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -17,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/lelandcypress//Gear_Out/issues"
   },
-  "homepage": "https://github.com/lelandcypress//Gear_Out_starter#readme"
+  "homepage": "https://github.com/lelandcypress//Gear_Out_starter#readme",
+  "devDependencies": {
+    "concurrently": "^6.3.0"
+  }
 }

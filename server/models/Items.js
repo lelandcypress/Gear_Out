@@ -36,7 +36,7 @@ const itemSchema = new Schema({
   //modify after successful MVP
   image: { type: String },
 
-  rating: { Rating },
+  rating: [Rating],
 });
 
 const Items = model("Items", itemSchema);

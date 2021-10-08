@@ -3,8 +3,8 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Order {
     _id: ID!
-    startDate: Date
-    endDate: Date
+    startDate: String
+    endDate: String
     items: [Items]
   }
 
@@ -17,7 +17,7 @@ const typeDefs = gql`
     location: String
     available: Boolean
     vendor: String
-    price: Number
+    price: Int
     image: String
     rating: [Rating]
   }
@@ -33,7 +33,7 @@ const typeDefs = gql`
     email: String
     password: String
     orders: [Order]
-    userRating: Rating
+    ## userRating: Rating
   }
   type Checkout {
     session: ID
@@ -44,7 +44,7 @@ const typeDefs = gql`
   }
   ##type Image## Looking into this
   type Rating {
-    rating: Number
+    rating: Int
     comment: String
   }
   input reviewInput {
@@ -65,7 +65,7 @@ const typeDefs = gql`
 
     login(email: String!, password: String!): Auth
 
-    addItemToOrder(orderData: itemToOrder): User
+    addItemToOrder(orders: itemToOrder): User
 
     returnItem(itemId: ID!): User
 

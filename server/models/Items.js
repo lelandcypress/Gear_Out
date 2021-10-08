@@ -24,6 +24,7 @@ const itemSchema = new Schema({
   available: {
     type: Boolean,
     required: true,
+    default: true,
   },
 
   vendor: {

@@ -94,7 +94,7 @@ const resolvers = {
       if (context.user) {
         return User.findbyIdAndUpdate(
           { _id: context.user._id },
-          { $push: { orders: args } },
+          { $addToSet: { orders: args } },
           { new: true }
         );
       }
@@ -111,17 +111,23 @@ const resolvers = {
     },
 
     toggleAvailability: async (parent, args, context) => {
-      //researching best way to do this
-      //find item, store is as variable
-      //update variable
-      //
+      if ((context.available = true)) {
+        return Item.findOneAndUpdate(
+          { _id: context._id },
+          { $set: { available: false } }
+        );
+      }
+      return Item.findOneAndUpdate(
+        { _id: context._id },
+        { $set: { available: true } }
+      );
     },
 
     createItemRating: async (parent, args, context) => {
       if (context.items) {
         return Items.findbyIdAndUpdate(
           { _id: context.items._id },
-          { $push: { rating: args } },
+          { $addToSet: { rating: args } },
           { new: true }
         );
       }

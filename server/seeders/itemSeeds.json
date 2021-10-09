@@ -10,7 +10,7 @@
         "price": 60,
         "image": "/assets/images/aquaman.jpg",
         "rating": {
-            "rating": "4",
+            "rating": 4,
             "comment": "This fits great, although is tight along the midrif."
         }
 
@@ -26,7 +26,7 @@
         "price": 300,
         "image": "/assets/images/batman-adult.jpg",
         "rating": {
-            "rating": "5",
+            "rating": 5,
             "comment": "Fought many bad guys, would wear again"
         }
 
@@ -42,7 +42,7 @@
         "price": 60,
         "image": "/assets/images/flash-adult.jpg",
         "rating": {
-            "rating": "4",
+            "rating": 4,
             "comment": "They can't catch me when I put this on!"
         }
 
@@ -58,7 +58,7 @@
         "price": 50,
         "image": "/assets/images/wonderwoman-adult.webp",
         "rating": {
-            "rating": "4",
+            "rating": 4,
             "comment": "BECAUSE I AM STRONGER THAN YESTERDAY!"
         }
 
@@ -74,7 +74,7 @@
         "price": 20,
         "image": "/assets/images/thor-shirt-adult.webp",
         "rating": {
-            "rating": "2",
+            "rating": 2,
             "comment": "You get what you pay for"
         }
         
@@ -91,7 +91,7 @@
         "price": 50,
         "image": "/assets/images/thor-child.jpg",
         "rating": {
-            "rating": "5",
+            "rating": 5,
             "comment": "My Daughter loves it!"
         }
 
@@ -107,7 +107,7 @@
         "price": 100,
         "image": "/assets/images/ironman-legit-adult.jpg",
         "rating": {
-            "rating": "5",
+            "rating": 5,
             "comment": "Saved the world with this, many times. Even the universe once."
         }
 
@@ -123,7 +123,7 @@
         "price": 100,
         "image": "/assets/images/gondor-soldier.jpg",
         "rating": {
-            "rating": "5",
+            "rating": 5,
             "comment": "Defeated Sauron effortlessly with this."
         }
 
@@ -139,7 +139,7 @@
         "price": 20,
         "image": "/assets/images/ranger-outfit.jpg",
         "rating": {
-            "rating": "4",
+            "rating": 4,
             "comment": "Many orcs died in the wearing of this"
         }
 
@@ -155,7 +155,7 @@
         "price": 100,
         "image": "/assets/images/greenpower-ranger.jpg",
         "rating": {
-            "rating": "5",
+            "rating": 5,
             "comment": "I could feel the power of Zord when I wore this. Would wear again"
         }
 
@@ -171,7 +171,7 @@
         "price": 30,
         "image": "/assets/images/thor-full-adult.jpg",
         "rating": {
-            "rating": "4",
+            "rating": 4,
             "comment": "I AM THE GOD OF THUNDER!"
         }
 
@@ -187,7 +187,7 @@
         "price": 80,
         "image": "/assets/images/thor-hammer.jpg",
         "rating": {
-            "rating": "5",
+            "rating": 5,
             "comment": "SMITE MY FOES!"
         }
 
@@ -203,7 +203,7 @@
         "price": 100,
         "image": "/assets/images/she-elf-blue-dress.jpg",
         "rating": {
-            "rating": "5",
+            "rating": 5,
             "comment": "Felt like an elf maiden"
         }
 
@@ -219,7 +219,7 @@
         "price": 50,
         "image": "/assets/images/arwen-costume.jpg",
         "rating": {
-            "rating": "5",
+            "rating": 5,
             "comment": "Frodo saved from the Nazgûl"
         }
 
@@ -235,7 +235,7 @@
         "price": 50,
         "image": "/assets/images/.jpg",
         "rating": {
-            "rating": "5",
+            "rating": 5,
             "comment": "(Rasping Sounds)"
         }
 
@@ -251,7 +251,7 @@
         "price": 30,
         "image": "/assets/images/morgul-blade.jpg",
         "rating": {
-            "rating": "4",
+            "rating": 4,
             "comment": "Would stab Frodo again. A+"
         }
 
@@ -267,7 +267,7 @@
         "price": 40,
         "image": "/assets/images/nazgul-gauntlets.jpg",
         "rating": {
-            "rating": "5",
+            "rating": 5,
             "comment": "Makes me look so much more evil than it should."
         }
 
@@ -283,7 +283,7 @@
         "price": 50,
         "image": "/assets/images/black-widow-adult.jpg",
         "rating": {
-            "rating": "4",
+            "rating": 4,
             "comment": "It got tighter since last I wore this."
         }
 
@@ -299,7 +299,7 @@
         "price": 50,
         "image": "/assets/images/cloud-strife-adult.jpg",
         "rating": {
-            "rating": "4",
+            "rating": 4,
             "comment": "A little loose in some places, but overall, great quality"
         }
 
@@ -315,7 +315,7 @@
         "price": 20,
         "image": "/assets/images/super-mario-kids.jpg",
         "rating": {
-            "rating": "4",
+            "rating": 4,
             "comment": "Son loved it!"
         }
 
@@ -331,7 +331,7 @@
         "price": 30,
         "image": "/assets/images/princess-peach.jpg",
         "rating": {
-            "rating": "4",
+            "rating": 4,
             "comment": "I AM SO PINK! I LOVE IT!!!!"
         }
 

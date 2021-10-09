@@ -2,7 +2,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import "./Jumbotron.css";
-import bgimage from "./images/bgimg.jpg";
+import bgimage from "./images/bgimg-min.jpg";
 
 import React from "react";
 

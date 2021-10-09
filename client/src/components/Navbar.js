@@ -5,8 +5,13 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import LinkContainer from 'react-router-bootstrap';
+import { useState } from 'react';
 
 function Navigation() {
+
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -28,8 +33,19 @@ function Navigation() {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              onChange={(value) => {
+                setSearchQuery(value);
+              }}
             />
-            <Button variant="outline-success">Search</Button>
+            <LinkContainer to={`/search/${searchQuery}`}>
+              <Button
+                variant="outline-success"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }}
+              >Search</Button>
+            </LinkContainer>
           </Form>
           <Nav>
             <Nav.Link href="#deets">Login</Nav.Link>

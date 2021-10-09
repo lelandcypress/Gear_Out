@@ -3,21 +3,21 @@
         "username": "firstuser",
         "email": "first@gmail.com",
         "password": "password1",
-        "orders": "",
+        "orders": [],
         "userRating": ""
     },
     {
         "username": "seconduser",
         "email": "second@gmail.com",
         "password": "password2",
-        "orders": "",
+        "orders": [],
         "userRating": ""
     },
     {
         "username": "thirduser",
         "email": "third@gmail.com",
         "password": "password3",
-        "orders": "",
+        "orders": [],
         "userRating": ""
     }
 

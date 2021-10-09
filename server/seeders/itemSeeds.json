@@ -1,0 +1,344 @@
+[
+    {
+        "name" : "Aquaman Costume" ,
+        "shortDescription":   "Medium Costume for DC universe Aquaman"  ,
+        "longDescription": "This is a great way to look like Aquaman. This is a Skin tight suit, one piece, with zipper in the back. It is of great quality and stretches to conform to wearer."  ,
+        "category": "Superhero" ,
+        "location": "Washington DC",
+        "available": true,
+        "vendor": "Greg S.",
+        "price": 60,
+        "image": "/assets/images/aquaman.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "This fits great, although is tight along the midrif."
+        }
+
+    },
+    {
+        "name" : "Batman Costume" ,
+        "shortDescription":   "Large Costume for DC universe Batman"  ,
+        "longDescription": "Batman is here! This is a legit Batman costume with real leather. It will  come with everything you need fight bad guys as the dark knight."  ,
+        "category": "Superhero" ,
+        "location": "St. Louis, MO",
+        "available": true,
+        "vendor": "Costume-Magic, INC",
+        "price": 300,
+        "image": "/assets/images/batman-adult.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "Fought many bad guys, would wear again"
+        }
+
+    },
+    {
+        "name" : "The Flash Costume" ,
+        "shortDescription":   "Medium Costume for DC universe the Flash"  ,
+        "longDescription": "This is a great way to look like the Flash. This is a Skin tight suit, one piece, with zipper in the back. It is of great quality and stretches to conform to wearer."  ,
+        "category": "Superhero" ,
+        "location": "Chicago, IL",
+        "available": true,
+        "vendor": "MoreCosplay",
+        "price": 60,
+        "image": "/assets/images/flash-adult.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "They can't catch me when I put this on!"
+        }
+
+    },
+    {
+        "name" : "Wonder Woman" ,
+        "shortDescription":   "Wonder woman costume for woman - Size Small"  ,
+        "longDescription": "Fight bad guys, teach those men not underestimate a woman. All woman are wonder woman when wearing this costume!"  ,
+        "category": "Superhero" ,
+        "location": "Chicago",
+        "available": true,
+        "vendor": "WomanCostumes",
+        "price": 50,
+        "image": "/assets/images/wonderwoman-adult.webp",
+        "rating": {
+            "rating": "4",
+            "comment": "BECAUSE I AM STRONGER THAN YESTERDAY!"
+        }
+
+    },
+    {
+        "name" : "Thor T-Shirt With cape" ,
+        "shortDescription":   "Budget Thor Costume - Shirt Only - Small"  ,
+        "longDescription": "On a budget? Look no further. This is the perfect costume to wear when out of time to buy an actual legit costume from the store."  ,
+        "category": "Superhero" ,
+        "location": "Dallas, Tx",
+        "available": true,
+        "vendor": "CheapCostumes",
+        "price": 20,
+        "image": "/assets/images/thor-shirt-adult.webp",
+        "rating": {
+            "rating": "2",
+            "comment": "You get what you pay for"
+        }
+        
+
+    },
+    {
+        "name" : "Thor Costume for Kids" ,
+        "shortDescription":   "Small Thor costume for children"  ,
+        "longDescription": "Your son/daughter likes thor? Look no further! They will love this costume. Fits most children."  ,
+        "category": "Superhero" ,
+        "location": "Oklahoma City, OK",
+        "available": true,
+        "vendor": "KidsCostumes",
+        "price": 50,
+        "image": "/assets/images/thor-child.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "My Daughter loves it!"
+        }
+
+    },
+    {
+        "name" : "THE Ironman Costume" ,
+        "shortDescription":   "True Ironman costume "  ,
+        "longDescription": "This is the costume for true lovers of Ironman and wish to be tony stark. You will not be disappointed. Lights up and everything. Just missing Jarvis/Friday in the HUD."  ,
+        "category": "Superhero" ,
+        "location": "Malibu, CA",
+        "available": true,
+        "vendor": "Tony S.",
+        "price": 100,
+        "image": "/assets/images/ironman-legit-adult.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "Saved the world with this, many times. Even the universe once."
+        }
+
+    },
+    {
+        "name" : "Gondor soldier Armor" ,
+        "shortDescription":   "Soldier of Gondor Amor"  ,
+        "longDescription": "This is a full set of armor that is inspired by the Lord of the Rings- Soldiers of Gondor. It comes with breastplate, bracers, chest and belt armor. Lightweight and detailed. You will love it!"  ,
+        "category": "Fantasy" ,
+        "location": "Houston, Tx",
+        "available": true,
+        "vendor": "FantasyCosplay",
+        "price": 100,
+        "image": "/assets/images/gondor-soldier.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "Defeated Sauron effortlessly with this."
+        }
+
+    },
+    {
+        "name" : "Ranger Outfit" ,
+        "shortDescription":   "Be a true ranger!"  ,
+        "longDescription": "Heavy armor too much? Would you like to hunt orcs in the woods? Look no further. This costume is for you! It will hide you in the thicket of the forest where no one will see you coming."  ,
+        "category": "Fantasy" ,
+        "location": "Cedar Rapids, IA",
+        "available": true,
+        "vendor": "CosplayCity",
+        "price": 20,
+        "image": "/assets/images/ranger-outfit.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "Many orcs died in the wearing of this"
+        }
+
+    },
+    {
+        "name" : "Green Power Ranger" ,
+        "shortDescription":   "This is the full outfit of the Green Power Ranger "  ,
+        "longDescription": "The helmet have a visible visor, padding, and also breathing holes. You will get: HELMET, HOODIE, GLOVES, BOOTS, BELT, INNERSUIT, SHIELD, SHOULDER PAD,"  ,
+        "category": "Power Rangers" ,
+        "location": "Minneapolis, MN",
+        "available": true,
+        "vendor": "AnikiCosplay",
+        "price": 100,
+        "image": "/assets/images/greenpower-ranger.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "I could feel the power of Zord when I wore this. Would wear again"
+        }
+
+    },
+    {
+        "name" : "Adult Thor Costume with Cape" ,
+        "shortDescription":   "Avengers Infinity War Thor Costume Cosplay Suit With Cloak"  ,
+        "longDescription": "Skin tight costume for Thor afficianados. Will make you look buff! Comes with red cape. It is modeled off the avengers infinity war costume."  ,
+        "category": "Superhero" ,
+        "location": "Odessa, Tx",
+        "available": true,
+        "vendor": "CosplayCity",
+        "price": 30,
+        "image": "/assets/images/thor-full-adult.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "I AM THE GOD OF THUNDER!"
+        }
+
+    },
+    {
+        "name" : "Mjolnir" ,
+        "shortDescription":   "This is the hammer of thor."  ,
+        "longDescription": "This is a handmade piece of art modeled after Mjolnir, hammer of thor from the MCU. It is hand polished and engraved. Made of genuine leather and Aluminum alloy"  ,
+        "category": "Superhero" ,
+        "location": "Portland, OR",
+        "available": true,
+        "vendor": "1930Studio",
+        "price": 80,
+        "image": "/assets/images/thor-hammer.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "SMITE MY FOES!"
+        }
+
+    },
+    {
+        "name" : "Medieval Dress - Blue" ,
+        "shortDescription":   "Luthien Dress for women"  ,
+        "longDescription": "This gown is made in blue strech velvet and grey chiffon sleeves. Decorated with a silver and black embroidery on the arms."  ,
+        "category": "Fantasy" ,
+        "location": "Seattle, WA",
+        "available": true,
+        "vendor": "CostureroReal",
+        "price": 100,
+        "image": "/assets/images/she-elf-blue-dress.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "Felt like an elf maiden"
+        }
+
+    },
+    {
+        "name" : "Arwen Costume" ,
+        "shortDescription":   "Lord of the Rings - Arwen 'Chase' costume"  ,
+        "longDescription": "Dress Arwen from the movie Lord of the Rings: Fellowship of the Ring. Hand embroidery on sleeves. The main material is suede."  ,
+        "category": "Fantasy" ,
+        "location": "Las Vegas, NV",
+        "available": true,
+        "vendor": "LucisWorkshop",
+        "price": 50,
+        "image": "/assets/images/arwen-costume.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "Frodo saved from the Nazgûl"
+        }
+
+    },
+    {
+        "name" : "Nazgul Robe" ,
+        "shortDescription":   "Servant of Sauron - Black robe Nazgul"  ,
+        "longDescription": "Full Nazgul costume. Sword and gauntlets are included at an extra fee. Please contact me or see other items for more information."  ,
+        "category": "Fantasy" ,
+        "location": "Nashville, TN",
+        "available": true,
+        "vendor": "7kingdoms",
+        "price": 50,
+        "image": "/assets/images/.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "(Rasping Sounds)"
+        }
+
+    },
+    {
+        "name" : "Morgul Blade" ,
+        "shortDescription":   "Lord of the Rings Witch King blade"  ,
+        "longDescription": "Each Morgul Blade is 3D printed and assembled using long steel screws throughout the entirety of the blade to keep it held together strong. The seems for the blade are hidden using glues, filler and paints. Each blade will be coated in several layers of silver spray paint, acrylics for wreathing and color and lastly clear coated for protection. The blade is intended for cosplay and display purposes only, the blade will not be able to take much impact without being damaged or bent."  ,
+        "category": "Fantasy" ,
+        "location": "London, UK",
+        "available": true,
+        "vendor": "SinisterPropz",
+        "price": 30,
+        "image": "/assets/images/morgul-blade.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "Would stab Frodo again. A+"
+        }
+
+    },
+    {
+        "name" : "Nazgul Gauntlets" ,
+        "shortDescription":   "Lord of the rings Nazgul gauntlets"  ,
+        "longDescription": "Authentic replica for display, wear, or costume use. Full adult size and wearable (one size fits all).Handmade from 18 gauge steels"  ,
+        "category": "Fantasy" ,
+        "location": "Sydney, AUS",
+        "available": true,
+        "vendor": "HomemadeCosplay",
+        "price": 40,
+        "image": "/assets/images/nazgul-gauntlets.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "Makes me look so much more evil than it should."
+        }
+
+    },
+    {
+        "name" : "Black Widow" ,
+        "shortDescription":   "Black Widow Costume Cosplay Suit Natasha Romanoff"  ,
+        "longDescription": "Be the spy you want to be! This item contains the jumpsuit, belt, backpack, gloves, bracers and boots. Gun props not included!"  ,
+        "category": "Superhero" ,
+        "location": "Raleigh, NC",
+        "available": true,
+        "vendor": "EasyHandArt",
+        "price": 50,
+        "image": "/assets/images/black-widow-adult.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "It got tighter since last I wore this."
+        }
+
+    },
+    {
+        "name" : "Cloud Strife Costume" ,
+        "shortDescription":   "Final Fantasy VII Cloud Strife Cosplay Costume"  ,
+        "longDescription": "Full costume based off Final Fantasy VII Character Cloud Strife. Made of Woollen knitting, tc twill, elastic leather, composite leather."  ,
+        "category": "Video Games" ,
+        "location": "Tokyo, Japan",
+        "available": true,
+        "vendor": "OmiPrincess",
+        "price": 50,
+        "image": "/assets/images/cloud-strife-adult.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "A little loose in some places, but overall, great quality"
+        }
+
+    },
+    {
+        "name" : "Super Mario costume" ,
+        "shortDescription":   "Children's super mario costume"  ,
+        "longDescription": "These professionally handcrafted Mario's Bros Overalls are made of Blue durable & washable Polyester. The costume includes: Overall ONLY."  ,
+        "category": "Video Games" ,
+        "location": "Tokyo, Japan",
+        "available": true,
+        "vendor": "EpicCostume",
+        "price": 20,
+        "image": "/assets/images/super-mario-kids.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "Son loved it!"
+        }
+
+    },
+    {
+        "name" : "Princess Peach" ,
+        "shortDescription":   "Princess Peach costume apron for women, Princess Peach dress up apron, Super Mario party"  ,
+        "longDescription": "Super Brother Costume For Women-Feature is pink long dress with bubble sleeve,white bustle,restored the character. Princess Costume Women’s materail-The main fabric of polyester."  ,
+        "category": "Video Games" ,
+        "location": "Tokyo, Japan",
+        "available": true,
+        "vendor": "VGCosplays",
+        "price": 30,
+        "image": "/assets/images/princess-peach.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "I AM SO PINK! I LOVE IT!!!!"
+        }
+
+    }
+
+
+
+
+
+]

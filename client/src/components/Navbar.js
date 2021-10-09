@@ -29,7 +29,7 @@ function Navigation() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-primary">Search</Button>
           </Form>
           <Nav>
             <Nav.Link href="#deets">Login</Nav.Link>

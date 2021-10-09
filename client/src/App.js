@@ -7,8 +7,11 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Jumbotron from "./components/Jumbotron";
+
 // Import Pages
 
 const httpLink = createHttpLink({
@@ -34,6 +37,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Navbar />
+      <Jumbotron />
       <Footer />
     </ApolloProvider>
   );

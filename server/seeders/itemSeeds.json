@@ -1,0 +1,98 @@
+[
+    {
+        "name" : "Aquaman Costume" ,
+        "shortDescription":   "Medium Costume for DC universe Aquaman"  ,
+        "longDescription": "This is a great way to look like Aquaman. This is a Skin tight suit, one piece, with zipper in the back. It is of great quality and stretches to conform to wearer."  ,
+        "category": "Superhero" ,
+        "location": "Washington DC",
+        "available": true,
+        "vendor": "Greg S.",
+        "price": "60",
+        "image": "/assets/images/aquaman.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "This fits great, although is tight along the midrif."
+        }
+
+    },
+    {
+        "name" : "Batman Costume" ,
+        "shortDescription":   "Large Costume for DC universe Batman"  ,
+        "longDescription": "Batman is here! This is a legit Batman costume with real leather. It will  come with everything you need fight bad guys as the dark knight."  ,
+        "category": "Superhero" ,
+        "location": "St. Louis, MO",
+        "available": true,
+        "vendor": "Costume-Magic, INC",
+        "price": "300",
+        "image": "/assets/images/batman-adult.jpg",
+        "rating": {
+            "rating": "5",
+            "comment": "Fought many bad guys, would buy again"
+        }
+
+    },
+    {
+        "name" : "The Flash Costume" ,
+        "shortDescription":   "Medium Costume for DC universe the Flash"  ,
+        "longDescription": "This is a great way to look like the Flash. This is a Skin tight suit, one piece, with zipper in the back. It is of great quality and stretches to conform to wearer."  ,
+        "category": "Superhero" ,
+        "location": "Chicago, IL",
+        "available": true,
+        "vendor": "MoreCosplay",
+        "price": "$60",
+        "image": "/assets/images/flash-adult.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "They can't catch me when I put this on!"
+        }
+
+    },
+    {
+        "name" : "Wonder Woman" ,
+        "shortDescription":   "Wonder woman costume for woman - Size Small"  ,
+        "longDescription": "Fight bad guys, teach those men not underestimate a woman. All woman are wonder woman when wearing this costume!"  ,
+        "category": "Superhero" ,
+        "location": "",
+        "available": true,
+        "vendor": "",
+        "price": "",
+        "image": "/assets/images/.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "BECAUSE I AM STRONGER THAN YESTERDAY!"
+        }
+
+    },
+    {
+        "name" : "" ,
+        "shortDescription":   ""  ,
+        "longDescription": ""  ,
+        "category": "" ,
+        "location": "",
+        "available": true,
+        "vendor": "",
+        "price": "",
+        "image": "/assets/images/.jpg",
+        "rating": {
+            "rating": "4",
+            "comment": "They can't catch me when I put this on!"
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]

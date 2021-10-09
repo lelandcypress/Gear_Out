@@ -19,6 +19,13 @@
         "password": "password3",
         "orders": [],
         "userRating": ""
+    },
+    {
+        "username": "fourthuser",
+        "email": "fourth@gmail.com",
+        "password": "password4",
+        "orders": [],
+        "userRating": ""
     }
 
 ]

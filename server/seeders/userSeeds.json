@@ -1,0 +1,24 @@
+[
+    {
+        "username": "firstuser",
+        "email": "first@gmail.com",
+        "password": "password1",
+        "orders": [],
+        "userRating": ""
+    },
+    {
+        "username": "seconduser",
+        "email": "second@gmail.com",
+        "password": "password2",
+        "orders": [],
+        "userRating": ""
+    },
+    {
+        "username": "thirduser",
+        "email": "third@gmail.com",
+        "password": "password3",
+        "orders": [],
+        "userRating": ""
+    }
+
+]

@@ -7,12 +7,9 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import homePage from "./pages/homePage";
-
+// Import Header and Footer
 // Import Pages
+import SearchResults from "./pages/searchResults";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -39,17 +36,18 @@ function App() {
       <Navbar />
       <Router>
         <>
+          {/* <Navbar /> */}
           <Switch>
-            <Route exact path="/" component={homePage} />
             <Route
               exact
-              path="/search/:query"
+              path="/"
               component={
                 {
-                  /* Search Results Page */
+                  /* Home Page */
                 }
               }
             />
+            <Route exact path="/search/:query" component={SearchResults} />
             <Route
               exact
               path="/items/:id"
@@ -71,6 +69,7 @@ function App() {
             {/* If path incorrect/ nonexistent item, show 404 page */}
             <Route render={() => <h1>404: Not Found</h1>} />
           </Switch>
+          {/* <Footer /> */}
         </>
       </Router>
       <Footer />

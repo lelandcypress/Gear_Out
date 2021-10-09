@@ -38,7 +38,7 @@ function Navigation() {
             />
             <LinkContainer to={`/search/${searchQuery}`}>
               <Button
-                variant="outline-success"
+                variant="outline-primary"
                 onSubmit={(event) => {
                   event.preventDefault();
                   event.stopPropagation();

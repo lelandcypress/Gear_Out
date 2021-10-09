@@ -38,13 +38,13 @@ function Navigation() {
               }}
             />
             <LinkContainer to={`/search/${searchQuery}`}>
-            <Button
-              variant="outline-success"
-              onSubmit={(event) => {
-                event.preventDefault();
-                event.stopPropagation();
-              }}
-            >Search</Button>
+              <Button
+                variant="outline-success"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }}
+              >Search</Button>
             </LinkContainer>
           </Form>
           <Nav>

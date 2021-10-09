@@ -1,25 +1,26 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   ApolloClient,
   ApolloProvider,
   createHttpLink,
-  InMemoryCache
+  InMemoryCache,
 } from "@apollo/client";
-import { setContext } from '@apollo/client/link/context';
-// Import Header and Footer
+import { setContext } from "@apollo/client/link/context";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 // Import Pages
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -32,20 +33,8 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <>
-        {/* <Navbar /> */}
-        <Switch>
-          <Route exact path='/' component={{/* Home Page */}} />
-          <Route exact path='/search/:query' component={{/* Search Results Page */}} />
-          <Route exact path='/items/:id' component={{/* Single Item Page */}} />
-          <Route exact path='/cart/' component={{/* Shopping Cart Page */}} />
-          {/* If path incorrect/ nonexistent item, show 404 page */}
-          <Route render={() => <h1>404: Not Found</h1>} />
-        </Switch>
-        {/* <Footer /> */}
-        </>
-      </Router>
+      <Navbar />
+      <Footer />
     </ApolloProvider>
   );
 }

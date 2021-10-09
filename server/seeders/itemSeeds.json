@@ -335,6 +335,150 @@
             "comment": "I AM SO PINK! I LOVE IT!!!!"
         }
 
+    },
+    {
+        "name" : "White Power Ranger Costume" ,
+        "shortDescription":   "MMPR Power Rangers White Tigerzord Costume Fullset (No Helmet)"  ,
+        "longDescription": "Tigerzord Cosplay Costume Mighty Morphin Power Rangers Jumpsuit Uniform, Source: Mighty Morphin Power Rangers, Characters: Tigerzord White Ranger, Material: Spandex, Cotton, Leather, Include: Jumpsuit, Waistband, Wrist support, Gloves, Shoes"  ,
+        "category": "Power Rangers" ,
+        "location": "Dallas, Tx",
+        "available": true,
+        "vendor": "ToyStation",
+        "price": 20,
+        "image": "/assets/images/white-power-ranger.jpg",
+        "rating": {
+            "rating": 4,
+            "comment": "Feel the power, of the mighty morphin power rangers!"
+        }
+
+    },
+    {
+        "name" : "Red Mage Final Fantasy XIV" ,
+        "shortDescription":   "Final Fantasy XIV Red Mage Job full costume for Adults"  ,
+        "longDescription": "This is a completely handmade custom item. Made according to the customer's sizing. Includes: Camisole, Pants, Skirt, Belts + side pieces, Boots, Hat, Cloak, Jabot, Gloves. This item includes tremendous amount of decorations, embroidery, handsewing."  ,
+        "category": "Video Games" ,
+        "location": "Dallas, Tx",
+        "available": true,
+        "vendor": "SeriousCosplays",
+        "price": 100,
+        "image": "/assets/images/red-mage-adult.jpg",
+        "rating": {
+            "rating": 5,
+            "comment": "Unmatched quality! A+++"
+        }
+
+    },
+    {
+        "name" : "Xena Warrior Princess" ,
+        "shortDescription":   "Xena Warrior princess costume and cosplay"  ,
+        "longDescription": "It is a fully handmade, professionally made cosplay. Includes: Top, Skirt, Breastplate, All bracelets, Chakran, Sword, Arm covers, Kneepads. MATERIALS: Faux leather, lycra, PVC, EVA foam. Attention! The color of items in the photos may be slightly different from the actual color depending on lighting and your monitor settings."  ,
+        "category": "Fantasy" ,
+        "location": "Sydney, AUS",
+        "available": true,
+        "vendor": "SeriousCosplays",
+        "price": 100,
+        "image": "/assets/images/xena-warrior-princess.jpg",
+        "rating": {
+            "rating": 5,
+            "comment": "took a little while to get here, but it was worth the wait! very solid and sturdy, paint job is amazing, everything looks pretty good! only thing was the ribbon was a little short for me but its probably because my face is chubbier and its an easy fix. would recommend!"
+        }
+
+    },
+    {
+        "name" : "Tifa Lockheart FFVII Costume" ,
+        "shortDescription":   "Final Fantasy Tifa Lockheart Cosplay- Great quality"  ,
+        "longDescription": "Final Fantasy VII Tifa Lockhart cosplay costume, Package including:Waistcoat with skirt, socks, hair accessories, gloves, waistband, armband, sleeve, armor and wrist guard"  ,
+        "category": "Video Games" ,
+        "location": "Tokyo, Japan",
+        "available": true,
+        "vendor": "FFCosplays",
+        "price": 50,
+        "image": "/assets/images/tifa-lockheart-adult.jpg",
+        "rating": {
+            "rating": 5,
+            "comment": "Vary well made! Quality material and fits perfectly!"
+        }
+
+    },
+    {
+        "name" : "Wolverine Costume" ,
+        "shortDescription":   "Full Wolverine costume based on 1992 comics"  ,
+        "longDescription": "Want to feel like the wolverine and slash your way through a party, metaphorically speaking? Look no further. Here is the original costume used by wolverine in the 1992 comic strip and seen in many shows. Comes with everything, boots, claws and suit along with helm."  ,
+        "category": "Superhero" ,
+        "location": "Dallas, Tx",
+        "available": true,
+        "vendor": "CosplayCity",
+        "price": 75,
+        "image": "/assets/images/wolverine-adult.jpg",
+        "rating": {
+            "rating": 4,
+            "comment": "Don't mess with me bub!"
+        }
+
+    },
+    {
+        "name" : "Rogue Costume" ,
+        "shortDescription":   "X-Men Anna Marie Rogue Costume Cosplay Suit"  ,
+        "longDescription": "Whole Set including: Jacket,Jumpsuit,Gloves,Shoes cover,Belt,Bags"  ,
+        "category": "Superhero" ,
+        "location": "Miami, FL",
+        "available": true,
+        "vendor": "CosplayCity",
+        "price": 50,
+        "image": "/assets/images/rogue-adult-female.jpg",
+        "rating": {
+            "rating": 4,
+            "comment": "Careful when you take off your gloves. You might hurt someone unintentionally."
+        }
+
+    },
+    {
+        "name" : "Stormtrooper" ,
+        "shortDescription":   "Star Wars Stormtrooper Costume Armor Fully Strapped with Soft Parts - STANDARD SIZE"  ,
+        "longDescription": "This set includes all of your armor, strapped and Ready-to-Wear, with Helmet and soft parts including Neck Seal, Bodysuit, Balaclava and Pro Trooping Gloves. Unlike a Kit this will not need strapping and includes all your soft parts for an affordable option. Our Stormtrooper Armor is made from high-quality 2.5mm white polished plastic. It has been trimmed with clean edges, and has been professionally strapped with industrial strength Hook and Loop by our team at the Stormtrooper Store."  ,
+        "category": "Star Wars" ,
+        "location": "Dallas, TX",
+        "available": true,
+        "vendor": "StormtrooperStore",
+        "price": 100,
+        "image": "/assets/images/storm-trooper.jpg",
+        "rating": {
+            "rating": 5,
+            "comment": "I still can't seem to hit the broadside of the barn"
+        }
+
+    },
+    {
+        "name" : "Padme Picnice Dress" ,
+        "shortDescription":   "Episode II gown used by Padme"  ,
+        "longDescription": "Remember the mother of Luke and Leigha Skywalker? Here she is when she wore the dress in the popular meme found in Episode II. Beautifully made and hand crafted. Please check the size to make sure it fits you!"  ,
+        "category": "Star Wars" ,
+        "location": "Dallas, Tx",
+        "available": true,
+        "vendor": "AtelierPucci",
+        "price": 200,
+        "image": "/assets/images/padme-picnic-dress.jpg",
+        "rating": {
+            "rating": 5,
+            "comment": "Loved the detail and quality!"
+        }
+
+    },
+    {
+        "name" : "Luke Skywalker - Jedi Costume" ,
+        "shortDescription":   "Jedi Costume - Luke - Shirt, Vest, Sash, Belt, and pants"  ,
+        "longDescription": "Feel like THE jedi in return of the jedi. Kick Darth Vader's butt and save the galaxy. Just remember that, conquering is easy, ruling is harder."  ,
+        "category": "Star Wars" ,
+        "location": "Dallas, Tx",
+        "available": true,
+        "vendor": "SWCosplay",
+        "price": 100,
+        "image": "/assets/images/luke-jedi-brown.jpg",
+        "rating": {
+            "rating": 5,
+            "comment": "May the force be with you"
+        }
+
     }
 
 

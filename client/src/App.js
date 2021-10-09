@@ -9,6 +9,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 // Import Header and Footer
 // Import Pages
+import SearchResults from './pages/SearchResults';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -37,7 +38,7 @@ function App() {
         {/* <Navbar /> */}
         <Switch>
           <Route exact path='/' component={{/* Home Page */}} />
-          <Route exact path='/search/:query' component={{/* Search Results Page */}} />
+          <Route exact path='/search/:query' component={SearchResults} />
           <Route exact path='/items/:id' component={{/* Single Item Page */}} />
           <Route exact path='/cart/' component={{/* Shopping Cart Page */}} />
           {/* If path incorrect/ nonexistent item, show 404 page */}

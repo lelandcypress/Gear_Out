@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 // import any major components, such as card
+import Card from '../components/Card';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_CATEGORY_SEARCH } from '../utils/queries';
@@ -28,18 +28,17 @@ const SearchResults = ({ props }) => {
                 {results.map((item) => {
                     return (
                         <li>
-                            {/*
-                                <Card 
-                                    key={item._id}
-                                    name={item.name}
-                                    shortDesc={item.shortDescription}
-                                    category={item.category}
-                                    available={item.available}
-                                    price={item.price}
-                                    image={item.image}
-                                    rating={item.rating}
-                                />
-                            */}
+                            <Card 
+                                key={item._id}
+                                itemLink={item._id}
+                                name={item.name}
+                                shortDesc={item.shortDescription}
+                                category={item.category}
+                                available={item.available}
+                                price={item.price}
+                                image={item.image}
+                                rating={item.rating}
+                            />
                         </li>
                     );
                 })}

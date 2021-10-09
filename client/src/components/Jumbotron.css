@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+.header-font {
+  font-family: "Bungee Shade", sans-serif;
+}
+
+.header-body-font {
+  font-family: "Lato", sans-serif;
+}
+.jumbotron-img {
+  background-image: url(https://www.pexels.com/photo/person-in-white-dress-standing-on-grass-field-5635105/);
+}
+
+.wt {
+  color: black;
+}
+
+.welcome {
+  border: 1px;
+  border-style: solid;
+  display: inline-block;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.jumbo-shadow {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}

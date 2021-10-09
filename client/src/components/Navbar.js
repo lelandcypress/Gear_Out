@@ -5,12 +5,11 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import LinkContainer from 'react-router-bootstrap';
-import { useState } from 'react';
+import LinkContainer from "react-router-bootstrap";
+import { useState } from "react";
 
 function Navigation() {
-
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -39,12 +38,14 @@ function Navigation() {
             />
             <LinkContainer to={`/search/${searchQuery}`}>
               <Button
-                variant="outline-success"
+                variant="outline-primary"
                 onSubmit={(event) => {
                   event.preventDefault();
                   event.stopPropagation();
                 }}
-              >Search</Button>
+              >
+                Search
+              </Button>
             </LinkContainer>
           </Form>
           <Nav>

@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
-const Items = require("./Items");
-
+const { itemSchema } = require("./Items");
 
 const orderSchema = new Schema({
   startDate: {
@@ -8,7 +7,7 @@ const orderSchema = new Schema({
     default: Date.now(),
   },
   endDate: Date,
-  items: [Items],
+  items: [itemSchema],
 });
 
 // hash user password
@@ -24,4 +23,4 @@ orderSchema.pre("save", async function (next) {
 
 const Order = model("Order", orderSchema);
 
-module.exports = Order;
+module.exports = { Order, orderSchema };

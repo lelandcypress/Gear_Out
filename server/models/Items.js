@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 //const Image = require("./Image");// After MVP
-const Rating = require("./Rating");
+const { ratingSchema } = require("./Rating");
 //const Vendor = require("./Vendor");// Sprint 2
 
 const itemSchema = new Schema({
@@ -36,9 +36,9 @@ const itemSchema = new Schema({
   //modify after successful MVP
   image: { type: String },
 
-  rating: [Rating],
+  rating: [ratingSchema],
 });
 
 const Items = model("Items", itemSchema);
 
-module.exports = Items;
+module.exports = { Items, itemSchema };

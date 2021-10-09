@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 const costumeSchema = require("./Items");
-const Order = require("./Order");
+const { orderSchema } = require("./Order");
 
 const userSchema = new Schema({
   username: {
@@ -20,13 +20,10 @@ const userSchema = new Schema({
     required: true,
   },
 
-  orders: [Order],
+  orders: [orderSchema],
 
-  userRating: { Rating },
-
-  toJSON: {
-    virtuals: true,
-  },
+  //userRating: { Rating },
+ 
 });
 
 // hash user password

@@ -19,7 +19,7 @@ const typeDefs = gql`
     vendor: String
     price: Int
     image: String
-    rating: [Rating]
+    ##rating: [Rating]
   }
   input itemToOrder {
     _id: ID!
@@ -48,14 +48,14 @@ const typeDefs = gql`
     comment: String
   }
   input reviewInput {
-    rating: Number
+    rating: Int
     comment: String
   }
 
   type Query {
     me: User
     getOneItem: Items
-    featuredItem: Items
+    featuredItems: Items
     categorySearch: Items
     checkout(items: [ID]!): Checkout
   }
@@ -70,7 +70,6 @@ const typeDefs = gql`
     returnItem(itemId: ID!): User
 
     toggleAvailability(itemId: ID!): Items ## TODO
-    
     createItemRating(itemId: ID!, itemReview: reviewInput!): Items
   }
 `;

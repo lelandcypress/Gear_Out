@@ -10,7 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Jumbotron from "./components/Jumbotron";
+import homePage from "./pages/homePage";
 
 // Import Pages
 
@@ -37,7 +37,42 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Navbar />
-      <Jumbotron />
+      <Router>
+        <>
+          <Switch>
+            <Route exact path="/" component={homePage} />
+            <Route
+              exact
+              path="/search/:query"
+              component={
+                {
+                  /* Search Results Page */
+                }
+              }
+            />
+            <Route
+              exact
+              path="/items/:id"
+              component={
+                {
+                  /* Single Item Page */
+                }
+              }
+            />
+            <Route
+              exact
+              path="/cart/"
+              component={
+                {
+                  /* Shopping Cart Page */
+                }
+              }
+            />
+            {/* If path incorrect/ nonexistent item, show 404 page */}
+            <Route render={() => <h1>404: Not Found</h1>} />
+          </Switch>
+        </>
+      </Router>
       <Footer />
     </ApolloProvider>
   );

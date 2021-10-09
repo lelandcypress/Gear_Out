@@ -1,7 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Items, User } = require("../models");
 const { signToken } = require("../utils/auth");
-const stripe = require('stripe')(process.env.STRIPE_KEY);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 const resolvers = {
   Query: {
@@ -12,42 +12,55 @@ const resolvers = {
 
       throw new AuthenticationError("You need to log in");
     },
+
+    getOneItem: async (parent, args, context) => {
+      return Items.findOne({ _id: context._id });
+    },
+
+    featuredItems: async (parent, args, context) => {
+      return Items.findOne({ _id: context._id });
+    },
+
+    categorySearch: async (parent, { categoryQuery }) => {
+      return Items.find({ category: categoryQuery });
+    },
+
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ items: args.items });
       const line_items = [];
-  
-      const { items } = await order.populate('items').execPopulate();
-  
+
+      const { items } = await order.populate("items").execPopulate();
+
       for (let i = 0; i < items.length; i++) {
         const item = await stripe.items.create({
           name: items[i].name,
           shortDescription: items[i].shortDescription,
-          images: [`${url}/images/${items[i].image}`]
+          images: [`${url}/images/${items[i].image}`],
         });
-  
+
         const price = await stripe.prices.create({
           item: item.id,
           unit_amount: items[i].price * 100,
-          currency: 'usd',
+          currency: "usd",
         });
-  
+
         line_items.push({
           price: price.id,
-          quantity: 1
+          quantity: 1,
         });
       }
-  
+
       const session = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
+        payment_method_types: ["card"],
         line_items,
-        mode: 'payment',
+        mode: "payment",
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`
+        cancel_url: `${url}/`,
       });
-  
+
       return { session: session.id };
-    }
+    },
   },
 
   Mutation: {
@@ -81,7 +94,7 @@ const resolvers = {
       if (context.user) {
         return User.findbyIdAndUpdate(
           { _id: context.user._id },
-          { $push: { orders: args } },
+          { $addToSet: { orders: args } },
           { new: true }
         );
       }
@@ -98,14 +111,26 @@ const resolvers = {
     },
 
     toggleAvailability: async (parent, args, context) => {
-      //researching best way to do this
-      //find item, store is as variable
-      //update variable 
-      //
+      if ((context.available = true)) {
+        return Item.findOneAndUpdate(
+          { _id: context._id },
+          { $set: { available: false } }
+        );
+      }
+      return Item.findOneAndUpdate(
+        { _id: context._id },
+        { $set: { available: true } }
+      );
     },
 
     createItemRating: async (parent, args, context) => {
-      //researching best way to do this
+      if (context.items) {
+        return Items.findbyIdAndUpdate(
+          { _id: context.items._id },
+          { $addToSet: { rating: args } },
+          { new: true }
+        );
+      }
     },
   },
 };

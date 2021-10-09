@@ -33,7 +33,7 @@ const typeDefs = gql`
     email: String
     password: String
     orders: [Order]
-    ## userRating: Rating
+    ## userRating: Rating SPRINT 2
   }
   type Checkout {
     session: ID
@@ -42,7 +42,7 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
-  ##type Image## Looking into this
+  ##type Image## SPRINT 2
   type Rating {
     rating: Int
     comment: String
@@ -69,8 +69,8 @@ const typeDefs = gql`
 
     returnItem(itemId: ID!): User
 
-    toggleAvailability(itemId: ID!): Items
-
+    toggleAvailability(itemId: ID!): Items ## TODO
+    
     createItemRating(itemId: ID!, itemReview: reviewInput!): Items
   }
 `;

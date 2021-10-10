@@ -19,7 +19,7 @@ const typeDefs = gql`
     vendor: String
     price: Int
     image: String
-    ##rating: [Rating]
+    rating: [Rating]
   }
   input itemToOrder {
     _id: ID!

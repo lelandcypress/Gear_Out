@@ -7,9 +7,7 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import homePage from "./homePage";
+// Import Header and Footer
 // Import Pages
 import SearchResults from "./pages/searchResults";
 
@@ -35,11 +33,19 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Navbar />
       <Router>
         <>
+          {/* <Navbar /> */}
           <Switch>
-            <Route exact path="/" component={homePage} />
+            <Route
+              exact
+              path="/"
+              component={
+                {
+                  /* Home Page */
+                }
+              }
+            />
             <Route exact path="/search/:query" component={SearchResults} />
             <Route
               exact
@@ -62,9 +68,10 @@ function App() {
             {/* If path incorrect/ nonexistent item, show 404 page */}
             <Route render={() => <h1>404: Not Found</h1>} />
           </Switch>
+
+          {/* <Footer /> */}
         </>
       </Router>
-      <Footer />
     </ApolloProvider>
   );
 }

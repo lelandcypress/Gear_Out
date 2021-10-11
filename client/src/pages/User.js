@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
+import Auth from "../utils/auth-client";
+import { Redirect, useParams } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import {
   MUTATION_RETURN_ITEM,
@@ -8,18 +10,24 @@ import {
 import { QUERY_ME } from "../utils/queries";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Stack from "react-bootstrap/Stack";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Image from "react-bootstrap/Image";
-import Badge from "react-bootstrap/badge";
 
 const User = ({ props }) => {
-  const [loading, data] = useQuery(QUERY_ME);
+  const { username: userParam } = useParams();
   const [returnItem, { error }] = useMutation(MUTATION_RETURN_ITEM);
   const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
+  const { loading, data } = useQuery(QUERY_ME, {
+    variables: { username: userParam },
+  });
+
+  const user = data?.me || data?.user || {};
+  // redirect to personal profile page if username is yours
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Redirect to="/me" />;
+  }
 
   const profile = data?.email || {};
   if (loading) {
@@ -34,6 +42,11 @@ const User = ({ props }) => {
     await returnItem;
     await toggleAvailability;
   };
+
+  if (!user?.username) {
+    return <h4>Please Login</h4>;
+  }
+
   profile.map((me) => {
     return (
       <Row>
@@ -70,10 +83,18 @@ const User = ({ props }) => {
               return (
                 <Card.Body>
                   <Card.Text border="dark">
-                    <p>{order.items.name}</p>
                     <p>Rental Start:{order.startDate}</p>
                     <p>Due Back:{order.endDate}</p>
-                    <Button>Return</Button>
+
+                    {order.items.map((item) => {
+                      return (
+                        <>
+                          <p>{item.name}</p>
+                        </>
+                      );
+                    })}
+
+                    <Button onClick={handleReturn}>Return</Button>
                   </Card.Text>
                 </Card.Body>
               );

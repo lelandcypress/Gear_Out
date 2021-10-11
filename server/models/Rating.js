@@ -8,7 +8,7 @@ const ratingSchema = new Schema({
   },
   comment: {
     type: String,
-    maxLength: 120,
+    maxLength: 500,
   },
 });
 

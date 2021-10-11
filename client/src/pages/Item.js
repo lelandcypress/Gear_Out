@@ -43,14 +43,13 @@ const Item = ({ props }) => {
         <Container>
           <Row>
             <Col>
-              s
               <Card border="dark">
                 <Card.Header>
                   <h3>{item.name}</h3>
                   {/*Conditional rendering for availability, not sure if we need a state hook here, or if GraphQL will manage*/}
                   <h5>
                     <Badge bg="secondary">
-                      {item.available ? "Available" : "Reserved"}
+                      {item.available ? "In Stock" : "Out of Stock"}
                     </Badge>
                   </h5>
                 </Card.Header>
@@ -61,9 +60,13 @@ const Item = ({ props }) => {
                   </Card.Text>
                   <div>Price: ${item.price}</div>
                 </Card.Body>
-                <Button variant="primary" onClick={handleOrder}>
-                  Reserve It Now
-                </Button>{" "}
+                {item.available ? (
+                  <Button variant="primary" onClick={handleOrder}>
+                    Reserve It Now
+                  </Button>
+                ) : (
+                  <Button variant="secondary">Unavailable</Button>
+                )}
               </Card>
             </Col>
             <Col>

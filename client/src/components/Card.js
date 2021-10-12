@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Card = ({ props }) => {
+const Card = (props) => {
 
     return (
         <Link
@@ -22,7 +22,7 @@ const Card = ({ props }) => {
                     <p>Out of Stock</p>
                 }
 
-                <h4>`$${props.price}`</h4>
+                <h4>${props.price}</h4>
                 <p>{props.rating}</p>
             </div>
         </Link>

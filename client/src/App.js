@@ -13,24 +13,31 @@ import Item from "./pages/Item";
 import homePage from "./pages/homePage";
 import SearchResults from "./pages/searchResults";
 
+// This is just a terrible bandaid. We'll need to figure out
+// WHY the ApolloClient link thinks it needs to point to 
+// http://localhost:3000/graphql
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
+// ** Need to reincorporate AuthLink later
+// const authLink = setContext((_, { headers }) => {
+//   const token = localStorage.getItem('id_token');
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : '',
+//     },
+//   };
+// });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  // link: authLink.concat(httpLink),
+  link: httpLink,
   cache: new InMemoryCache(),
 });
+
+// console.log("HTTPLINK", httpLink);
 
 function App() {
   return (

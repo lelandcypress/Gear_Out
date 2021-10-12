@@ -9,15 +9,11 @@ const SearchResults = ({ props }) => {
 
     const { query } = useParams();
 
-    console.log("!!! Query: ", query);
-
     const { loading, data } = useQuery(QUERY_CATEGORY_SEARCH, {
         variables: { categoryQuery: query },
     });
-    console.log("!!! Loading", loading);
-    console.log("!!! Data", data);
+
     const results = data?.categorySearch || {};
-    console.log(results);
 
     if (loading) {
         return (
@@ -27,18 +23,19 @@ const SearchResults = ({ props }) => {
         );
     }
 
-    // if (!loading && !data) {
-    //     return  <Redirect  to="/404" />
-    // }
+    if (!loading && !data) {
+        return  <Redirect  to="/404" />
+    }
 
     return (
         <>
             <ul>
                 {results.map((item) => {
                     return (
-                        <li>
-                            <Card 
-                                key={item._id}
+                        <li
+                            key={item._id}
+                        >
+                            <Card
                                 itemLink={item._id}
                                 name={item.name}
                                 shortDesc={item.shortDescription}

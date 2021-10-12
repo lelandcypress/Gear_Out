@@ -7,9 +7,9 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import homePage from "./homePage";
+import Navigation from "./components/Navbar";
+import Footer from "./components/Footer";
+import homePage from "./pages/homePage";
 // Import Pages
 import SearchResults from "./pages/searchResults";
 
@@ -35,7 +35,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Navbar />
+      <Navigation />
       <Router>
         <>
           <Switch>

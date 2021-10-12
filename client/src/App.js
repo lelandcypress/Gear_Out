@@ -8,9 +8,10 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 // Import Header and Footer
+import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
-import homePage from "./pages/homePage";
+import Homepage from "./pages/Homepage";
 import SearchResults from "./pages/searchResults";
 
 const httpLink = createHttpLink({
@@ -18,11 +19,11 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("id_token");
+  const token = localStorage.getItem('id_token');
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
@@ -37,9 +38,9 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          {/* <Navbar /> */}
+          <Navigation />
           <Switch>
-            <Route exact path="/" component={homePage} />
+            <Route exact path="/" component={Homepage} />
             <Route exact path="/search/:query" component={SearchResults} />
             <Route exact path="/items/:id" component={Item} />
             <Route
@@ -56,6 +57,7 @@ function App() {
           </Switch>
 
           <Footer />
+
         </>
       </Router>
     </ApolloProvider>

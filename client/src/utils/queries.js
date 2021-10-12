@@ -47,21 +47,23 @@ export const QUERY_SINGLE_ITEM = gql`
 `;
 
 export const QUERY_FEATURED_ITEMS = gql`
-    query featuredItem {
-        featuredItem {
+    query featuredItems {
+        featuredItems {
             _id
             name
             category
             price
             image
-            rating
+            rating {
+                rating
+            }
         }
     }
 `;
 
 export const QUERY_CATEGORY_SEARCH = gql`
-    query categorySearch {
-        categorySearch {
+    query categorySearch($categoryQuery: String!) {
+        categorySearch(categoryQuery: $categoryQuery) {
             _id
             name
             shortDescription
@@ -69,7 +71,6 @@ export const QUERY_CATEGORY_SEARCH = gql`
             available
             price
             image
-            rating
         }
     }
 `;

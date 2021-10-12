@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Items, User } = require("../models");
+const { Items, itemSchema, User } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 
@@ -7,22 +7,28 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("orders");
+        return await User.findOne({ _id: context.user._id }).populate("orders");
       }
 
       throw new AuthenticationError("You need to log in");
     },
 
     getOneItem: async (parent, args, context) => {
-      return Items.findOne({ _id: context._id });
+      return await Items.findOne({ _id: context._id });
     },
 
-    featuredItems: async (parent, args, context) => {
-      return Items.findOne({ _id: context._id });
+    featuredItems: async () => {
+
+      // return await Items.find({ available: "true" });
+      return await Items.aggregate([{
+        $sample: {
+          size: 6,
+        },
+      }]);
     },
 
     categorySearch: async (parent, { categoryQuery }) => {
-      return Items.find({ category: categoryQuery });
+      return await Items.find({ category: categoryQuery });
     },
 
     checkout: async (parent, args, context) => {
@@ -92,7 +98,7 @@ const resolvers = {
 
     addItemToOrder: async (parent, args, context) => {
       if (context.user) {
-        return User.findbyIdAndUpdate(
+        return await User.findbyIdAndUpdate(
           { _id: context.user._id },
           { $addToSet: { orders: args } },
           { new: true }
@@ -102,7 +108,7 @@ const resolvers = {
     },
     returnItem: async (parent, args, context) => {
       if (context.user) {
-        return User.findbyIdAndUpdate(
+        return await User.findbyIdAndUpdate(
           { _id: contex.user._id },
           { $pull: { orders: context.items._id } },
           { new: true }
@@ -112,12 +118,12 @@ const resolvers = {
 
     toggleAvailability: async (parent, args, context) => {
       if ((context.available = true)) {
-        return Item.findOneAndUpdate(
+        return await Item.findOneAndUpdate(
           { _id: context._id },
           { $set: { available: false } }
         );
       }
-      return Item.findOneAndUpdate(
+      return await Item.findOneAndUpdate(
         { _id: context._id },
         { $set: { available: true } }
       );
@@ -125,7 +131,7 @@ const resolvers = {
 
     createItemRating: async (parent, args, context) => {
       if (context.items) {
-        return Items.findbyIdAndUpdate(
+        return await Items.findbyIdAndUpdate(
           { _id: context.items._id },
           { $addToSet: { rating: args } },
           { new: true }

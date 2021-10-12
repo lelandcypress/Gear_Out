@@ -29,7 +29,7 @@ const User = ({ props }) => {
     return <Redirect to="/me" />;
   }
 
-  const profile = data?.email || {};
+  const me = data?.email || {};
   if (loading) {
     return (
       <>
@@ -47,63 +47,61 @@ const User = ({ props }) => {
     return <h4>Please Login</h4>;
   }
 
-  profile.map((me) => {
-    return (
-      <Row>
-        <Col>
-          <Card border="dark">
-            <Card.Header>
-              <h3>PROFILE</h3>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                <div>Username:{me.username}</div>
-                <div>Email: {me.email}</div>
-              </Card.Text>
-            </Card.Body>
-            <Stack gap={2}>
-              <div className="border">
-                <p>User Reviews</p>
-                <div>5 out of 5 Stars</div>
-                <div>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
+  return (
+    <Row>
+      <Col>
+        <Card border="dark">
+          <Card.Header>
+            <h3>PROFILE</h3>
+          </Card.Header>
+          <Card.Body>
+            <Card.Text>
+              <div>Username:{me.username}</div>
+              <div>Email: {me.email}</div>
+            </Card.Text>
+          </Card.Body>
+          <Stack gap={2}>
+            <div className="border">
+              <p>User Reviews</p>
+              <div>5 out of 5 Stars</div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </div>
-            </Stack>
-          </Card>
-        </Col>
-        <Col>
-          <Card border="dark">
-            <Card.Header>
-              <h3>Orders</h3>{" "}
-            </Card.Header>
+            </div>
+          </Stack>
+        </Card>
+      </Col>
+      <Col>
+        <Card border="dark">
+          <Card.Header>
+            <h3>Orders</h3>{" "}
+          </Card.Header>
 
-            {me.orders.map((order) => {
-              return (
-                <Card.Body>
-                  <Card.Text border="dark">
-                    <p>Rental Start:{order.startDate}</p>
-                    <p>Due Back:{order.endDate}</p>
+          {me.orders.map((order) => {
+            return (
+              <Card.Body>
+                <Card.Text border="dark">
+                  <p>Rental Start:{order.startDate}</p>
+                  <p>Due Back:{order.endDate}</p>
 
-                    {order.items.map((item) => {
-                      return (
-                        <>
-                          <p>{item.name}</p>
-                        </>
-                      );
-                    })}
+                  {order.items.map((item) => {
+                    return (
+                      <>
+                        <p>{item.name}</p>
+                      </>
+                    );
+                  })}
 
-                    <Button onClick={handleReturn}>Return</Button>
-                  </Card.Text>
-                </Card.Body>
-              );
-            })}
-          </Card>
-        </Col>
-      </Row>
-    );
-  });
+                  <Button onClick={handleReturn}>Return</Button>
+                </Card.Text>
+              </Card.Body>
+            );
+          })}
+        </Card>
+      </Col>
+    </Row>
+  );
 };
 
 export default User;

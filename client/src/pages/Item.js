@@ -22,7 +22,7 @@ const Item = ({ props }) => {
   const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
   //const [availability, setAvailability] = useState("");
 
-  const product = data?._id || {};
+  const item = data?._id || {};
   if (loading) {
     return (
       <>
@@ -37,64 +37,63 @@ const Item = ({ props }) => {
   };
 
   // eslint-disable-next-line no-lone-blocks
-  {
-    product.map((item) => {
-      return (
-        <Container>
-          <Row>
-            <Col>
-              <Card border="dark">
-                <Card.Header>
-                  <h3>{item.name}</h3>
-                  {/*Conditional rendering for availability, not sure if we need a state hook here, or if GraphQL will manage*/}
-                  <h5>
-                    <Badge bg="secondary">
-                      {item.available ? "In Stock" : "Out of Stock"}
-                    </Badge>
-                  </h5>
-                </Card.Header>
-                <Image src={item.image} fluid />
-                <Card.Body>
-                  <Card.Text>
-                    Carried By:{item.vendor} {item.location}
-                  </Card.Text>
-                  <div>Price: ${item.price}</div>
-                </Card.Body>
-                {item.available ? (
-                  <Button variant="primary" onClick={handleOrder}>
-                    Reserve It Now
-                  </Button>
-                ) : (
-                  <Button variant="secondary">Unavailable</Button>
-                )}
-              </Card>
-            </Col>
-            <Col>
-              <Card border="dark">
-                <Card.Header>Description</Card.Header>
 
-                <Card.Body>{item.longDescription}</Card.Body>
-                {/*allows for multiple ratings per item*/}
-                <Stack gap={2}>
-                  <div className="border">
-                    <p>User Reviews</p>
-                    {item.rating.map((rating) => {
-                      return (
-                        <>
-                          <div>{rating.rating} out of 5 Stars</div>
-                          <div>{rating.comment}</div>
-                        </>
-                      );
-                    })}
-                  </div>
-                </Stack>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      );
-    });
-  }
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <Card border="dark">
+            <Card.Header>
+              <h3>{item.name}</h3>
+              {/*Conditional rendering for availability, not sure if we need a state hook here, or if GraphQL will manage*/}
+              <h5>
+                <Badge bg="secondary">
+                  {item.available ? "In Stock" : "Out of Stock"}
+                </Badge>
+              </h5>
+            </Card.Header>
+            <Image src={item.image} fluid />
+            <Card.Body>
+              <Card.Text>
+                Carried By:{item.vendor} {item.location}
+              </Card.Text>
+              <div>Price: ${item.price}</div>
+            </Card.Body>
+            {item.available ? (
+              <Button variant="primary" onClick={handleOrder}>
+                Reserve It Now
+              </Button>
+            ) : (
+              <Button variant="secondary" disabled>
+                Unavailable
+              </Button>
+            )}
+          </Card>
+        </Col>
+        <Col>
+          <Card border="dark">
+            <Card.Header>Description</Card.Header>
+
+            <Card.Body>{item.longDescription}</Card.Body>
+            {/*allows for multiple ratings per item*/}
+            <Stack gap={2}>
+              <div className="border">
+                <p>User Reviews</p>
+                {item.rating.map((rating) => {
+                  return (
+                    <>
+                      <div>{rating.rating} out of 5 Stars</div>
+                      <div>{rating.comment}</div>
+                    </>
+                  );
+                })}
+              </div>
+            </Stack>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  );
 };
 
 export default Item;

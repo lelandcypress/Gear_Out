@@ -47,14 +47,16 @@ export const QUERY_SINGLE_ITEM = gql`
 `;
 
 export const QUERY_FEATURED_ITEMS = gql`
-    query featuredItem {
-        featuredItem {
+    query featuredItems {
+        featuredItems {
             _id
             name
             category
             price
             image
-            rating
+            rating {
+                rating
+            }
         }
     }
 `;

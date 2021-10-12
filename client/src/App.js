@@ -7,10 +7,10 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import Navigation from "./components/Navbar";
+// Import Header and Footer
 import Footer from "./components/Footer";
+import Item from "./pages/Item";
 import homePage from "./pages/homePage";
-// Import Pages
 import SearchResults from "./pages/searchResults";
 
 const httpLink = createHttpLink({
@@ -35,21 +35,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Navigation />
       <Router>
         <>
+          {/* <Navbar /> */}
           <Switch>
             <Route exact path="/" component={homePage} />
             <Route exact path="/search/:query" component={SearchResults} />
-            <Route
-              exact
-              path="/items/:id"
-              component={
-                {
-                  /* Single Item Page */
-                }
-              }
-            />
+            <Route exact path="/items/:id" component={Item} />
             <Route
               exact
               path="/cart/"
@@ -62,9 +54,10 @@ function App() {
             {/* If path incorrect/ nonexistent item, show 404 page */}
             <Route render={() => <h1>404: Not Found</h1>} />
           </Switch>
+
+          <Footer />
         </>
       </Router>
-      <Footer />
     </ApolloProvider>
   );
 }

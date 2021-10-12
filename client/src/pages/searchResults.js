@@ -1,18 +1,19 @@
 // import any major components, such as card
 import Card from '../components/Card';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_CATEGORY_SEARCH } from '../utils/queries';
 
 // Props if we need them
 const SearchResults = ({ props }) => {
 
-    const { searchQuery } = useParams();
+    const { query } = useParams();
+
     const { loading, data } = useQuery(QUERY_CATEGORY_SEARCH, {
-        variables: { categoryQuery: searchQuery },
+        variables: { categoryQuery: query },
     });
 
-    const results = data?.category || {};
+    const results = data?.categorySearch || {};
 
     if (loading) {
         return (
@@ -22,14 +23,19 @@ const SearchResults = ({ props }) => {
         );
     }
 
+    if (!loading && !data) {
+        return  <Redirect  to="/404" />
+    }
+
     return (
         <>
             <ul>
                 {results.map((item) => {
                     return (
-                        <li>
-                            <Card 
-                                key={item._id}
+                        <li
+                            key={item._id}
+                        >
+                            <Card
                                 itemLink={item._id}
                                 name={item.name}
                                 shortDesc={item.shortDescription}

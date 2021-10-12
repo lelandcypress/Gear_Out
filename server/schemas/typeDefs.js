@@ -56,7 +56,7 @@ const typeDefs = gql`
     me: User
     getOneItem: Items
     featuredItems: Items
-    categorySearch: Items
+    categorySearch(categoryQuery: String!): [Items]
     checkout(items: [ID]!): Checkout
   }
 

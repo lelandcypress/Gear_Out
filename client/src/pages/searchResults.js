@@ -36,6 +36,7 @@ const SearchResults = ({ props }) => {
                             key={item._id}
                         >
                             <Card
+                                previous={"SEARCH"}
                                 itemLink={item._id}
                                 name={item.name}
                                 shortDesc={item.shortDescription}

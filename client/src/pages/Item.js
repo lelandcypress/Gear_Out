@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 import {
@@ -20,6 +20,7 @@ const Item = ({ props }) => {
   const [loading, data] = useQuery(QUERY_SINGLE_ITEM);
   const [addItemToOrder, { error }] = useMutation(MUTATION_ADD_ITEM_TO_ORDER);
   const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
+  //const [availability, setAvailability] = useState("");
 
   const product = data?._id || {};
   if (loading) {
@@ -45,8 +46,11 @@ const Item = ({ props }) => {
               <Card border="dark">
                 <Card.Header>
                   <h3>{item.name}</h3>
+                  {/*Conditional rendering for availability, not sure if we need a state hook here, or if GraphQL will manage*/}
                   <h5>
-                    <Badge bg="success">{item.available}</Badge>
+                    <Badge bg="secondary">
+                      {item.available ? "In Stock" : "Out of Stock"}
+                    </Badge>
                   </h5>
                 </Card.Header>
                 <Image src={item.image} fluid />
@@ -56,9 +60,13 @@ const Item = ({ props }) => {
                   </Card.Text>
                   <div>Price: ${item.price}</div>
                 </Card.Body>
-                <Button variant="primary" onClick={handleOrder}>
-                  Reserve It Now
-                </Button>{" "}
+                {item.available ? (
+                  <Button variant="primary" onClick={handleOrder}>
+                    Reserve It Now
+                  </Button>
+                ) : (
+                  <Button variant="secondary">Unavailable</Button>
+                )}
               </Card>
             </Col>
             <Col>
@@ -66,12 +74,18 @@ const Item = ({ props }) => {
                 <Card.Header>Description</Card.Header>
 
                 <Card.Body>{item.longDescription}</Card.Body>
-
+                {/*allows for multiple ratings per item*/}
                 <Stack gap={2}>
                   <div className="border">
                     <p>User Reviews</p>
-                    <div>5 out of 5 Stars</div>
-                    <div>Fought many bad guys, would wear again</div>
+                    {item.rating.map((rating) => {
+                      return (
+                        <>
+                          <div>{rating.rating} out of 5 Stars</div>
+                          <div>{rating.comment}</div>
+                        </>
+                      );
+                    })}
                   </div>
                 </Stack>
               </Card>

@@ -8,7 +8,9 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 // Import Header and Footer
-// Import Pages
+import Footer from "./components/Footer";
+import Item from "./pages/Item";
+import homePage from "./pages/homePage";
 import SearchResults from "./pages/searchResults";
 
 const httpLink = createHttpLink({
@@ -37,25 +39,9 @@ function App() {
         <>
           {/* <Navbar /> */}
           <Switch>
-            <Route
-              exact
-              path="/"
-              component={
-                {
-                  /* Home Page */
-                }
-              }
-            />
+            <Route exact path="/" component={homePage} />
             <Route exact path="/search/:query" component={SearchResults} />
-            <Route
-              exact
-              path="/items/:id"
-              component={
-                {
-                  /* Single Item Page */
-                }
-              }
-            />
+            <Route exact path="/items/:id" component={Item} />
             <Route
               exact
               path="/cart/"
@@ -69,7 +55,7 @@ function App() {
             <Route render={() => <h1>404: Not Found</h1>} />
           </Switch>
 
-          {/* <Footer /> */}
+          <Footer />
         </>
       </Router>
     </ApolloProvider>

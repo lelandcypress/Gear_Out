@@ -13,40 +13,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
-<<<<<<< HEAD
 import Homepage from "./pages/homePage";
-=======
-import Homepage from "./pages/Homepage";
-<<<<<<< HEAD
-import SearchResults from "./pages/SearchResults";
-=======
->>>>>>> ce9b5e2c751ee891f374cb16e10c5bc8da2b57e4
 import SearchResults from "./pages/searchResults";
 import { StoreProvider } from './utils/GlobalState';
 import LoginSignup from './pages/LoginSignup';
 import Cart from "./components/Cart";
 
 
->>>>>>> master
-
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql",
 });
 
-<<<<<<< HEAD
-// const authLink = setContext((_, { headers }) => {
-//   const token = localStorage.getItem('id_token');
-//   return {
-//     headers: {
-//       ...headers,
-//       authorization: token ? `Bearer ${token}` : '',
-//     },
-//   };
-// });
-
-const client = new ApolloClient({
-  // link: authLink.concat(httpLink),
-=======
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
   return {
@@ -59,7 +36,6 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
->>>>>>> ce9b5e2c751ee891f374cb16e10c5bc8da2b57e4
   link: httpLink,
   cache: new InMemoryCache(),
 });

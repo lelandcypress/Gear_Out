@@ -8,22 +8,32 @@ import {
 } from "@apollo/client";
 import "./App.css";
 import { setContext } from "@apollo/client/link/context";
+import "bootstrap/dist/css/bootstrap.min.css";
 // Import Header and Footer
 import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
+<<<<<<< HEAD
 import Homepage from "./pages/homePage";
+=======
+import Homepage from "./pages/Homepage";
+<<<<<<< HEAD
+import SearchResults from "./pages/SearchResults";
+=======
+>>>>>>> ce9b5e2c751ee891f374cb16e10c5bc8da2b57e4
 import SearchResults from "./pages/searchResults";
 import { StoreProvider } from './utils/GlobalState';
 import LoginSignup from './pages/LoginSignup';
 import Cart from "./components/Cart";
 
 
+>>>>>>> master
 
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
 });
 
+<<<<<<< HEAD
 // const authLink = setContext((_, { headers }) => {
 //   const token = localStorage.getItem('id_token');
 //   return {
@@ -36,6 +46,20 @@ const httpLink = createHttpLink({
 
 const client = new ApolloClient({
   // link: authLink.concat(httpLink),
+=======
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+>>>>>>> ce9b5e2c751ee891f374cb16e10c5bc8da2b57e4
   link: httpLink,
   cache: new InMemoryCache(),
 });
@@ -65,7 +89,6 @@ function App() {
             {/* If path incorrect/ nonexistent item, show 404 page */}
             <Route render={() => <h1>404: Not Found</h1>} />
           </Switch>
-
           <Footer />
               </StoreProvider>
         </>

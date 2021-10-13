@@ -11,18 +11,16 @@ export default function JumbotronComp() {
     <>
       <Jumbotron
         fluid
-        className="jumbo-shadow"
+        className="jumbo-shadow mb-5"
         style={{
           backgroundImage: `url(${bgimage})`,
           backgroundSize: "cover",
-          minHeight: "275px",
+          maxHeight: "500px",
         }}
       >
         <Container>
           <div className="text-center wt p-5 header-font">
-            <figure className="bungee regular-0b5ba8 inline-55a5fe shade-0b5ba8-20 outline-ffffff sign-c1e6ff horizontal begin-circle end-circle ">
-              Welcome to Gear-Out!
-            </figure>
+            <h1 className="header-font">Welcome to Gear-Out!</h1>
             {/* <div className="vertical mt-5 wt welcome p-3 header-body-font">
               <p>Tired of cheap party city costumes? Us too!</p>
               <p>

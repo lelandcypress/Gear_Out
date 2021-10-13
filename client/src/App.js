@@ -15,7 +15,7 @@ import Item from "./pages/Item";
 import Homepage from "./pages/homePage";
 import SearchResults from "./pages/searchResults";
 import { StoreProvider } from './utils/GlobalState';
-
+import LoginSignup from './pages/LoginSignup';
 
 
 const httpLink = createHttpLink({
@@ -49,6 +49,7 @@ function App() {
             <Route exact path="/" component={Homepage} />
             <Route exact path="/search/:query" component={SearchResults} />
             <Route exact path="/items/:id" component={Item} />
+            <Route exact path="/login" component={LoginSignup} />
             <Route
               exact
               path="/cart/"

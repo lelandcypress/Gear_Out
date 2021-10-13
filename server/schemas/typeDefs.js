@@ -39,7 +39,7 @@ const typeDefs = gql`
     session: ID
   }
   type Auth {
-    token: ID!
+    token: String
     user: User
   }
   ##type Image## SPRINT 2

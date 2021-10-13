@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Items, itemSchema, User } = require("../models");
+const { Items, User } = require("../models");
 const { signToken } = require("../utils/auth");
 // const stripe = require("stripe")(process.env.STRIPE_KEY);
 // Use this below if one above does not work
@@ -80,12 +80,12 @@ const resolvers = {
       const user = await User.create(args);
       //assign token to user
       const token = signToken(user);
-
+      console.log(token);
       return { token, user };
     },
 
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ $or: [{ username: email }, { email: email }] });
       //user created
       if (!user) {
         throw new AuthenticationError("Invalid Login Credentials");
@@ -93,7 +93,7 @@ const resolvers = {
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Invalid Login Credentials");
+        throw new AuthenticationError("Invalid Credentials");
       }
       const token = signToken(user);
       console.log(token);

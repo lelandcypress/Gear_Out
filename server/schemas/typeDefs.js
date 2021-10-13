@@ -9,7 +9,7 @@ const typeDefs = gql`
   }
 
   type Items {
-    _id: ID!
+    _id: String
     name: String
     shortDescription: String
     longDescription: String
@@ -54,8 +54,12 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    getOneItem: Items
+
+    getOneItem(_id: String): Items
+ 
+
     featuredItems: [Items]
+
     categorySearch(categoryQuery: String!): [Items]
     checkout(items: [ID]!): Checkout
   }

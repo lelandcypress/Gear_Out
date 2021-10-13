@@ -6,6 +6,7 @@ import {
   createHttpLink,
   InMemoryCache,
 } from "@apollo/client";
+import "./App.css";
 import { setContext } from "@apollo/client/link/context";
 // Import Header and Footer
 import Navigation from "./components/Navbar";
@@ -14,6 +15,7 @@ import Item from "./pages/Item";
 import Homepage from "./pages/Homepage";
 import SearchResults from "./pages/searchResults";
 import LoginSignup from './pages/LoginSignup';
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -59,7 +61,6 @@ function App() {
           </Switch>
 
           <Footer />
-
         </>
       </Router>
     </ApolloProvider>

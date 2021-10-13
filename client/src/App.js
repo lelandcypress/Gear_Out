@@ -7,29 +7,31 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import "bootstrap/dist/css/bootstrap.min.css";
 // Import Header and Footer
 import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
 import Homepage from "./pages/Homepage";
-import SearchResults from "./pages/searchResults";
+import SearchResults from "./pages/SearchResults";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
+  link: httpLink,
   cache: new InMemoryCache(),
 });
 
@@ -55,9 +57,7 @@ function App() {
             {/* If path incorrect/ nonexistent item, show 404 page */}
             <Route render={() => <h1>404: Not Found</h1>} />
           </Switch>
-
           <Footer />
-
         </>
       </Router>
     </ApolloProvider>

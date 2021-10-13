@@ -1,54 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Card.css";
 
 const Card = (props) => {
+  let cardLink = "";
 
-    let cardLink = '';
+  switch (props.previous) {
+    case "SEARCH":
+      cardLink = `../items/${props.itemLink}`;
+      break;
+    case "HOME":
+      cardLink = `/items/${props.itemLink}`;
+      break;
+    default:
+      cardLink = `/`;
+      break;
+  }
 
-    switch(props.previous) {
-        case "SEARCH":
-            cardLink = `../items/${props.itemLink}`
-            break;
-        case "HOME":
-            cardLink = `/items/${props.itemLink}`;
-            break;
-        default:
-            cardLink = `/`
-            break;
-    }
+  return (
+    <>
+      <div className="card costume-card m-3">
+        <Link to={cardLink}>
+          <div className="card-body">
+            <h4 className="card-title font-weight-bold mb-2">{props.name}</h4>
+            <p>{props.category}</p>
+          </div>
+          <div className="d-flex justify-content-center">
+            <img className="costume-img" src={props.image} alt="" />
+          </div>
+          <div className="card-body">
+            <p>{props.shortDesc}</p>
 
-    return (
-        <Link
-            to={cardLink}
-        >
-            <div>
-                <h3>{props.name}</h3>
-                <img
-                    src={props.image}
-                    alt=''
-                />
-                <p>{props.shortDesc}</p>
-                <p>{props.category}</p>
+            {props.available ? <p>In Stock</p> : <p>Out of Stock</p>}
 
-                {props.available?
-                    <p>In Stock</p>
-                    :
-                    <p>Out of Stock</p>
-                }
-
-                <h4>${props.price}</h4>
-                {props.rating ?
-                    <p>
-                    {props.rating.map((rating) => {
-
-                    })}
-                    </p>
-                    :
-                    null
-                }
-            </div>
+            <h4>${props.price}</h4>
+            {props.rating ? <p>{props.rating.map((rating) => {})}</p> : null}
+          </div>
         </Link>
-    );
-}
+      </div>
+    </>
+  );
+};
 
 export default Card;

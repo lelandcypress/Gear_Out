@@ -11,11 +11,11 @@ export default function JumbotronComp() {
     <>
       <Jumbotron
         fluid
-        className="jumbo-shadow"
+        className="jumbo-shadow mb-5"
         style={{
           backgroundImage: `url(${bgimage})`,
           backgroundSize: "cover",
-          minHeight: "275px",
+          minHeight: "300px",
         }}
       >
         <Container>

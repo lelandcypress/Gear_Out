@@ -1,0 +1,18 @@
+.costume-img {
+  max-height: 400px;
+  max-width: 25rem;
+  height: 400px;
+  width: 24rem;
+  border-radius: 4px;
+}
+
+.costume-card {
+  max-width: 25rem;
+  max-height: 700px;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.costume-card:hover {
+  transform: scale(1.02);
+}

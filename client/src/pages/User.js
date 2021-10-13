@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import Auth from "../utils/auth-client";
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import {
   MUTATION_RETURN_ITEM,
@@ -15,21 +15,18 @@ import Stack from "react-bootstrap/Stack";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
-const User = ({ props }) => {
-  const { username: userParam } = useParams();
+const UserProfile = (props) => {
   const [returnItem, { error }] = useMutation(MUTATION_RETURN_ITEM);
   const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
-  const { loading, data } = useQuery(QUERY_ME, {
-    variables: { username: userParam },
-  });
+  const { loading, data } = useQuery(QUERY_ME);
 
-  const user = data?.me || data?.user || {};
-  // redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Redirect to="/me" />;
+  const user = data?.me || {};
+
+  // If you aren't logged in, go to home
+  if (!Auth.loggedIn()) {
+    return <Redirect to="/" />;
   }
 
-  const profile = data?.email || {};
   if (loading) {
     return (
       <>
@@ -43,12 +40,7 @@ const User = ({ props }) => {
     await toggleAvailability;
   };
 
-  if (!user?.username) {
-    return <h4>Please Login</h4>;
-  }
-
-  profile.map((me) => {
-    return (
+  return (
       <Row>
         <Col>
           <Card border="dark">
@@ -57,8 +49,10 @@ const User = ({ props }) => {
             </Card.Header>
             <Card.Body>
               <Card.Text>
-                <div>Username:{me.username}</div>
-                <div>Email: {me.email}</div>
+                Username:{user.username}
+              </Card.Text>
+              <Card.Text>
+                Email: {user.email}
               </Card.Text>
             </Card.Body>
             <Stack gap={2}>
@@ -78,32 +72,30 @@ const User = ({ props }) => {
             <Card.Header>
               <h3>Orders</h3>{" "}
             </Card.Header>
+            {user.orders?
+            <>
+              {user.orders.map((order) => {
+                return (
+                  <Card.Body>
+                    <Card.Text border="dark">
+                      <p>Rental Start:{order.startDate}</p>
+                      <p>Due Back:{order.endDate}</p>
 
-            {me.orders.map((order) => {
-              return (
-                <Card.Body>
-                  <Card.Text border="dark">
-                    <p>Rental Start:{order.startDate}</p>
-                    <p>Due Back:{order.endDate}</p>
+                      {order.items.map((item) => <p>{item.name}</p>)}
 
-                    {order.items.map((item) => {
-                      return (
-                        <>
-                          <p>{item.name}</p>
-                        </>
-                      );
-                    })}
-
-                    <Button onClick={handleReturn}>Return</Button>
-                  </Card.Text>
-                </Card.Body>
-              );
-            })}
+                      <Button onClick={handleReturn}>Return</Button>
+                    </Card.Text>
+                  </Card.Body>
+                );
+              })}
+            </>
+            :
+            null
+            }
           </Card>
         </Col>
       </Row>
     );
-  });
-};
+  }
 
-export default User;
+export default UserProfile;

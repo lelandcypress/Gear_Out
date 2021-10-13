@@ -13,10 +13,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
-import Homepage from "./pages/homePage";
+import homePage from "./pages/homePage";
 import SearchResults from "./pages/searchResults";
 import { StoreProvider } from './utils/GlobalState';
 import LoginSignup from './pages/LoginSignup';
+import UserProfile from './pages/User';
 import Cart from "./components/Cart";
 
 
@@ -36,7 +37,6 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  link: httpLink,
   cache: new InMemoryCache(),
 });
 
@@ -49,10 +49,11 @@ function App() {
           <Navigation />
           <Cart />
           <Switch>
-            <Route exact path="/" component={Homepage} />
+            <Route exact path="/" component={homePage} />
             <Route exact path="/search/:query" component={SearchResults} />
             <Route exact path="/items/:id" component={Item} />
             <Route exact path="/login" component={LoginSignup} />
+            <Route exact path="/profile" component={UserProfile} />
             <Route
               exact
               path="/cart/"

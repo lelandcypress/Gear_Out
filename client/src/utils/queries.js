@@ -20,10 +20,10 @@ export const QUERY_ME = gql`
           image
         }
       }
-      userRating {
-        rating
-        comment
-      }
+      # userRating {
+      #   rating
+      #   comment
+      # }
     }
   }
 `;

@@ -6,6 +6,7 @@ import {
   createHttpLink,
   InMemoryCache,
 } from "@apollo/client";
+import "./App.css";
 import { setContext } from "@apollo/client/link/context";
 // Import Header and Footer
 import Footer from "./components/Footer";
@@ -14,7 +15,7 @@ import homePage from "./pages/homePage";
 import SearchResults from "./pages/searchResults";
 
 // This is just a terrible bandaid. We'll need to figure out
-// WHY the ApolloClient link thinks it needs to point to 
+// WHY the ApolloClient link thinks it needs to point to
 // http://localhost:3000/graphql
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
@@ -63,7 +64,6 @@ function App() {
           </Switch>
 
           <Footer />
-
         </>
       </Router>
     </ApolloProvider>

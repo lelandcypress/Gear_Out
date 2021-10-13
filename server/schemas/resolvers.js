@@ -14,7 +14,8 @@ const resolvers = {
     },
 
     getOneItem: async (parent, args, context) => {
-      return await Items.findOne({ _id: context._id });
+      console.log("test");
+      return await Items.findOne({ _id: args._id });
     },
 
     featuredItems: async (parent, args, context) => {

@@ -21,7 +21,7 @@ import { idbPromise } from '../utils/helpers';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
 import { pluralize } from "../utils/helpers";
 
-const Item = (item) => {
+const Item = ({props}) => {
   const [state, dispatch] = useStoreContext();
   const id = useParams();
   const [item, setItem] = useState(null);
@@ -38,11 +38,11 @@ const Item = (item) => {
   // const [addItemToOrder, { error }] = useMutation(MUTATION_ADD_ITEM_TO_ORDER);
   // const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
   const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === item._id)
+    const itemInCart = cart.find((cartItem) => cartItem._id === id._id)
     if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
-        _id: item._id,
+        _id: id._id,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
       });
       idbPromise('cart', 'put', {

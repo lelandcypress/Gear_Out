@@ -8,7 +8,7 @@ import Auth from '../utils/auth-client';
 import { useStoreContext } from '../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../utils/actions';
 import './Cart.css';
-// import cartLogo from '../../public/cart.svg'
+
 
 // const stripePromise = loadStripe("stripe")(process.env.STRIPE_KEY);
 // Use this below if one above does not work
@@ -71,7 +71,7 @@ const Cart = () => {
     return (
       <div className="cart-closed" onClick={toggleCart}>
         <span role="img" aria-label="trash">
-          <img src="cart.svg" alt="Gear-Out Cart Logo"/>
+          <img src="./assets/images/cart.svg" alt="Gear-Out Cart Logo"/>
         </span>
       </div>
     );

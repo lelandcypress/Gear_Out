@@ -1,0 +1,33 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.costume-img {
+  border-radius: 4px;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.costume-card {
+  height: 100%;
+  border-radius: 10px;
+  transition: transform 0.2s;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.costume-card:hover {
+  transform: scale(1.02);
+}
+
+.card-title {
+  color: black !important;
+}

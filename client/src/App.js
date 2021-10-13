@@ -6,6 +6,7 @@ import {
   createHttpLink,
   InMemoryCache,
 } from "@apollo/client";
+import "./App.css";
 import { setContext } from "@apollo/client/link/context";
 // Import Header and Footer
 import Navigation from "./components/Navbar";
@@ -14,6 +15,7 @@ import Item from "./pages/Item";
 import Homepage from "./pages/homePage";
 import SearchResults from "./pages/searchResults";
 import { StoreProvider } from './utils/GlobalState';
+
 
 
 const httpLink = createHttpLink({

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 import {
@@ -6,6 +6,7 @@ import {
   MUTATION_TOGGLE_AVAILABILITY,
 } from "../utils/mutations";
 import { QUERY_SINGLE_ITEM } from "../utils/queries";
+import { Redirect, useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -20,17 +21,22 @@ import { idbPromise } from '../utils/helpers';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
 import { pluralize } from "../utils/helpers";
 
-
-
 const Item = (item) => {
   const [state, dispatch] = useStoreContext();
-  const [loading, data] = useQuery(QUERY_SINGLE_ITEM);
-  // const [addItemToOrder, { error }] = useMutation(MUTATION_ADD_ITEM_TO_ORDER);
-  // const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
-  //const [availability, setAvailability] = useState("");
-
+  const id = useParams();
+  const [item, setItem] = useState(null);
+  const { loading, data } = useQuery(QUERY_SINGLE_ITEM, {
+    variables: { _id: id.id },
+  });
   const { cart } = state
 
+  useEffect(() => {
+    if (data !== undefined) {
+      setItem(data.getOneItem);
+    }
+  }, [data, loading]);
+  // const [addItemToOrder, { error }] = useMutation(MUTATION_ADD_ITEM_TO_ORDER);
+  // const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === item._id)
     if (itemInCart) {
@@ -51,80 +57,78 @@ const Item = (item) => {
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
   }
-
-  const product = data?._id || {};
-  if (loading) {
+  const loadComponent = () => {
     return (
       <>
         <h2>Hang Tight...getting your costume ready</h2>
       </>
     );
-  }
+  };
+
   // const handleOrder = async (e) => {
   //   e.preventDefault();
   //   await addItemToOrder;
-  //   await toggleAvailability;
   // };
 
-  // eslint-disable-next-line no-lone-blocks
-  {
-    product.map((item) => {
-      return (
-        <Container>
-          <Row>
-            <Col>
-              <Card border="dark">
-                <Card.Header>
-                  <h3>{item.name}</h3>
-                  {/*Conditional rendering for availability, not sure if we need a state hook here, or if GraphQL will manage*/}
-                  <h5>
-                    <Badge bg="secondary">
-                      {item.available ? "In Stock" : "Out of Stock"}
-                    </Badge>
-                  </h5>
-                </Card.Header>
-                <Image src={item.image} fluid />
-                <Card.Body>
-                  <Card.Text>
-                    Carried By:{item.vendor} {item.location}
-                  </Card.Text>
-                  <div>Price: ${item.price}</div>
-                </Card.Body>
-                {item.available ? (
-                  <Button variant="primary" onClick={addToCart}>
-                    Reserve It Now
-                  </Button>
-                ) : (
-                  <Button variant="secondary">Unavailable</Button>
-                )}
-              </Card>
-            </Col>
-            <Col>
-              <Card border="dark">
-                <Card.Header>Description</Card.Header>
+  return (
+    <Container>
+      {!loading && item !== null ? (
+        <Row>
+          <Col>
+            <Card border="dark">
+              <Card.Header>
+                <h3>{item.name}</h3>
 
-                <Card.Body>{item.longDescription}</Card.Body>
-                {/*allows for multiple ratings per item*/}
-                <Stack gap={2}>
-                  <div className="border">
-                    <p>User Reviews</p>
-                    {item.rating.map((rating) => {
-                      return (
-                        <>
-                          <div>{rating.rating} out of 5 Stars</div>
-                          <div>{rating.comment}</div>
-                        </>
-                      );
-                    })}
-                  </div>
-                </Stack>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      );
-    });
-  }
+                <h5>
+                  <Badge bg="secondary">
+                    {item.available ? "In Stock" : "Out of Stock"}
+                  </Badge>
+                </h5>
+              </Card.Header>
+              <Image src={item.image} fluid />
+              <Card.Body>
+                <Card.Text>
+                  Carried By:{item.vendor} {item.location}
+                </Card.Text>
+                <div>Price: ${item.price}</div>
+              </Card.Body>
+              {item.available ? (
+                <Button variant="primary" onClick={addToCart}>
+                  Reserve It Now
+                </Button>
+              ) : (
+                <Button variant="secondary">Unavailable</Button>
+              )}
+            </Card>
+          </Col>
+          <Col>
+            <Card border="dark">
+              <Card.Header>Description</Card.Header>
+              <Card.Body>{item.longDescription}</Card.Body>
+              <div className="stack-wrapper">
+                <div className="border custom-stack">
+                  <p>User Reviews</p>
+
+                  {Array.isArray(item.rating) && item.rating.length > 0
+                    ? item.rating.map((rating, index) => {
+                        return (
+                          <div key={index}>
+                            <div>{rating.rating} out of 5 Stars</div>
+                            <div>{rating.comment}</div>
+                          </div>
+                        );
+                      })
+                    : null}
+                </div>
+              </div>
+            </Card>
+          </Col>
+        </Row>
+      ) : (
+        loadComponent()
+      )}
+    </Container>
+  );
 };
 
 export default Item;

@@ -233,7 +233,7 @@
         "available": true,
         "vendor": "7kingdoms",
         "price": 50,
-        "image": "/assets/images/.jpg",
+        "image": "/assets/images/nazgul-robe.jpg",
         "rating": {
             "rating": 5,
             "comment": "(Rasping Sounds)"
@@ -449,7 +449,7 @@
 
     },
     {
-        "name" : "Padme Picnice Dress" ,
+        "name" : "Padme Picnic Dress" ,
         "shortDescription":   "Episode II gown used by Padme"  ,
         "longDescription": "Remember the mother of Luke and Leigha Skywalker? Here she is when she wore the dress in the popular meme found in Episode II. Beautifully made and hand crafted. Please check the size to make sure it fits you!"  ,
         "category": "Star Wars" ,

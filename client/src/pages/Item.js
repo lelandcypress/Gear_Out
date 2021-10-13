@@ -16,20 +16,47 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import Badge from "react-bootstrap/badge";
+import { useStoreContext } from '../utils/GlobalState';
+import { idbPromise } from '../utils/helpers';
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
+import { pluralize } from "../utils/helpers";
 
-const Item = () => {
+const Item = ({props}) => {
+  const [state, dispatch] = useStoreContext();
   const id = useParams();
   const [item, setItem] = useState(null);
   const { loading, data } = useQuery(QUERY_SINGLE_ITEM, {
     variables: { _id: id.id },
   });
+  const { cart } = state
+
   useEffect(() => {
     if (data !== undefined) {
       setItem(data.getOneItem);
     }
   }, [data, loading]);
-  const [addItemToOrder, { error }] = useMutation(MUTATION_ADD_ITEM_TO_ORDER);
-  const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
+  // const [addItemToOrder, { error }] = useMutation(MUTATION_ADD_ITEM_TO_ORDER);
+  // const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
+  const addToCart = () => {
+    const itemInCart = cart.find((cartItem) => cartItem._id === id._id)
+    if (itemInCart) {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: id._id,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+      });
+      idbPromise('cart', 'put', {
+        ...itemInCart,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+      });
+    } else {
+      dispatch({
+        type: ADD_TO_CART,
+        product: { ...item, purchaseQuantity: 1 }
+      });
+      idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+    }
+  }
   const loadComponent = () => {
     return (
       <>
@@ -38,10 +65,10 @@ const Item = () => {
     );
   };
 
-  const handleOrder = async (e) => {
-    e.preventDefault();
-    await addItemToOrder;
-  };
+  // const handleOrder = async (e) => {
+  //   e.preventDefault();
+  //   await addItemToOrder;
+  // };
 
   return (
     <Container>
@@ -66,7 +93,7 @@ const Item = () => {
                 <div>Price: ${item.price}</div>
               </Card.Body>
               {item.available ? (
-                <Button variant="primary" onClick={handleOrder}>
+                <Button variant="primary" onClick={addToCart}>
                   Reserve It Now
                 </Button>
               ) : (

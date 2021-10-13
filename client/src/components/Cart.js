@@ -8,15 +8,18 @@ import Auth from '../utils/auth-client';
 import { useStoreContext } from '../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../utils/actions';
 import './Cart.css';
+// import cartLogo from '../../public/cart.svg'
 
-const stripePromise = loadStripe("stripe")(process.env.STRIPE_KEY);
+// const stripePromise = loadStripe("stripe")(process.env.STRIPE_KEY);
 // Use this below if one above does not work
-// const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
+  console.log(state);
+  console.log(dispatch);
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
@@ -68,7 +71,7 @@ const Cart = () => {
     return (
       <div className="cart-closed" onClick={toggleCart}>
         <span role="img" aria-label="trash">
-          🛒
+          <img src="cart.svg" alt="Gear-Out Cart Logo"/>
         </span>
       </div>
     );

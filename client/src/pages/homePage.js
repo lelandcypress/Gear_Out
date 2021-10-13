@@ -2,6 +2,9 @@ import Jumbotron from "../components/Jumbotron";
 import Card from '../components/Card';
 import { useQuery } from '@apollo/client';
 import { QUERY_FEATURED_ITEMS } from '../utils/queries';
+import Cart from "../components/Cart";
+import React from "react";
+
 
 function Homepage() {
 
@@ -15,6 +18,7 @@ function Homepage() {
       return (
           <>
             <Jumbotron />
+            <Cart />
             <h2>Loading, please wait...</h2>
           </>
       );
@@ -23,6 +27,7 @@ function Homepage() {
   return (
     <>
       <Jumbotron />
+       <Cart />
       <ul>
         {results.map( (item) => {
           return (
@@ -44,6 +49,5 @@ function Homepage() {
       </ul>
     </>
   );
-}
-
+      }
 export default Homepage;

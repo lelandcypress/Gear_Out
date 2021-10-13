@@ -11,25 +11,28 @@ import { setContext } from "@apollo/client/link/context";
 import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
-import Homepage from "./pages/Homepage";
+import Homepage from "./pages/homePage";
 import SearchResults from "./pages/searchResults";
+import { StoreProvider } from './utils/GlobalState';
+
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
+// const authLink = setContext((_, { headers }) => {
+//   const token = localStorage.getItem('id_token');
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : '',
+//     },
+//   };
+// });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  // link: authLink.concat(httpLink),
+  link: httpLink,
   cache: new InMemoryCache(),
 });
 
@@ -38,6 +41,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
+        <StoreProvider>
           <Navigation />
           <Switch>
             <Route exact path="/" component={Homepage} />
@@ -57,7 +61,7 @@ function App() {
           </Switch>
 
           <Footer />
-
+              </StoreProvider>
         </>
       </Router>
     </ApolloProvider>

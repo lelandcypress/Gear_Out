@@ -19,17 +19,17 @@ const Card = (props) => {
 
   return (
     <>
-      <div className="card costume-card m-3">
+      <div className="card costume-card">
         <Link to={cardLink}>
           <div className="card-body">
-            <h4 className="card-title font-weight-bold mb-2">{props.name}</h4>
-            <p>{props.category}</p>
+            <h3 className="card-title font-weight-bold mb-2">{props.name}</h3>
+            <h4>{props.category}</h4>
           </div>
           <div className="d-flex justify-content-center">
             <img className="costume-img" src={props.image} alt="" />
           </div>
           <div className="card-body">
-            <p>{props.shortDesc}</p>
+            <h4>{props.shortDesc}</h4>
 
             {props.available ? <p>In Stock</p> : <p>Out of Stock</p>}
 

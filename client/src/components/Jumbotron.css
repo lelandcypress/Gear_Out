@@ -3,6 +3,7 @@
 
 .header-font {
   font-family: "Bungee Shade", sans-serif;
+  font-size: 300%;
 }
 
 .header-body-font {
@@ -27,4 +28,22 @@
 
 .jumbo-shadow {
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .header-font {
+    font-size: 300%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .header-font {
+    font-size: 200%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header-font {
+    font-size: 100%;
+  }
 }

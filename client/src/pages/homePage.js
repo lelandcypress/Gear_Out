@@ -23,22 +23,24 @@ function Homepage() {
     <>
       <Jumbotron />
       {/* <ul> */}
-      <div className="row">
-        {results.map((item) => {
-          return (
-            <div className="col-lg-4 col-md-6 col-sm-2" key={item._id}>
-              <Card
-                previous={"HOME"}
-                itemLink={item._id}
-                name={item.name}
-                category={item.category}
-                price={item.price}
-                image={item.image}
-                rating={item.rating}
-              />
-            </div>
-          );
-        })}
+      <div class="container-fluid text-center">
+        <div className="row">
+          {results.map((item) => {
+            return (
+              <div className="col-lg-4 mx-auto mb-4" key={item._id}>
+                <Card
+                  previous={"HOME"}
+                  itemLink={item._id}
+                  name={item.name}
+                  category={item.category}
+                  price={item.price}
+                  image={item.image}
+                  rating={item.rating}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
       {/* </ul> */}
     </>

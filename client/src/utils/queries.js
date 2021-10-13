@@ -50,17 +50,19 @@ export const QUERY_SINGLE_ITEM = gql`
 `;
 
 export const QUERY_FEATURED_ITEMS = gql`
-  query featuredItem {
-    featuredItem {
-      _id
-      name
-      category
-      price
-      image
-      rating
+    query featuredItems {
+        featuredItems {
+            _id
+            name
+            category
+            price
+            image
+            rating {
+                rating
+            }
+        }
     }
-  }
-`;
+  `;
 
 export const QUERY_CATEGORY_SEARCH = gql`
   query categorySearch($categoryQuery: String!) {

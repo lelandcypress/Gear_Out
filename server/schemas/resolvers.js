@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Items, User } = require("../models");
+const { Items, itemSchema, User } = require("../models");
 const { signToken } = require("../utils/auth");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 
@@ -18,8 +18,14 @@ const resolvers = {
       return await Items.findOne({ _id: args._id });
     },
 
-    featuredItems: async (parent, args, context) => {
-      return await Items.findOne({ _id: context._id });
+    featuredItems: async () => {
+
+      // return await Items.find({ available: "true" });
+      return await Items.aggregate([{
+        $sample: {
+          size: 6,
+        },
+      }]);
     },
 
     categorySearch: async (parent, { categoryQuery }) => {

@@ -54,8 +54,12 @@ const typeDefs = gql`
 
   type Query {
     me: User
+
     getOneItem(_id: String): Items
-    featuredItems: Items
+ 
+
+    featuredItems: [Items]
+
     categorySearch(categoryQuery: String!): [Items]
     checkout(items: [ID]!): Checkout
   }

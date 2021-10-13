@@ -9,45 +9,40 @@ import {
 import "./App.css";
 import { setContext } from "@apollo/client/link/context";
 // Import Header and Footer
+import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
-import homePage from "./pages/homePage";
+import Homepage from "./pages/Homepage";
 import SearchResults from "./pages/searchResults";
 
-// This is just a terrible bandaid. We'll need to figure out
-// WHY the ApolloClient link thinks it needs to point to
-// http://localhost:3000/graphql
+
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql",
 });
 
-// ** Need to reincorporate AuthLink later
-// const authLink = setContext((_, { headers }) => {
-//   const token = localStorage.getItem('id_token');
-//   return {
-//     headers: {
-//       ...headers,
-//       authorization: token ? `Bearer ${token}` : '',
-//     },
-//   };
-// });
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 
 const client = new ApolloClient({
-  // link: authLink.concat(httpLink),
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
-// console.log("HTTPLINK", httpLink);
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
-          {/* <Navbar /> */}
+          <Navigation />
           <Switch>
-            <Route exact path="/" component={homePage} />
+            <Route exact path="/" component={Homepage} />
             <Route exact path="/search/:query" component={SearchResults} />
             <Route exact path="/items/:id" component={Item} />
             <Route

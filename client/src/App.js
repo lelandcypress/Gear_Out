@@ -14,13 +14,9 @@ import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
 import Homepage from "./pages/Homepage";
-<<<<<<< HEAD
-import SearchResults from "./pages/SearchResults";
-=======
 import SearchResults from "./pages/searchResults";
 import LoginSignup from './pages/LoginSignup';
-
->>>>>>> master
+import UserProfile from './pages/User';
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -38,7 +34,6 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  link: httpLink,
   cache: new InMemoryCache(),
 });
 
@@ -53,6 +48,7 @@ function App() {
             <Route exact path="/search/:query" component={SearchResults} />
             <Route exact path="/items/:id" component={Item} />
             <Route exact path="/login" component={LoginSignup} />
+            <Route exact path="/profile" component={UserProfile} />
             <Route
               exact
               path="/cart/"

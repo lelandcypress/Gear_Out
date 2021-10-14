@@ -48,7 +48,9 @@ function App() {
             <Navigation />
             <Cart />
             <Switch>
+
               <Route exact path="/" component={Homepage} />
+
               <Route exact path="/search/:query" component={SearchResults} />
               <Route exact path="/items/:id" component={Item} />
               <Route exact path="/login" component={LoginSignup} />

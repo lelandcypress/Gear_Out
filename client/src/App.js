@@ -14,13 +14,8 @@ import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
 import Homepage from "./pages/Homepage";
-<<<<<<< HEAD
-import SearchResults from "./pages/SearchResults";
-=======
 import SearchResults from "./pages/searchResults";
-import LoginSignup from './pages/LoginSignup';
-
->>>>>>> master
+import LoginSignup from "./pages/LoginSignup";
 
 const httpLink = createHttpLink({
   uri: "/graphql",

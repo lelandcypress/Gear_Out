@@ -1,5 +1,5 @@
 {
-  "name": "Gear_Out",
+  "name": "gearout",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.1.1",
+    "chokidar": "^3.5.2",
     "react-bootstrap": "^2.0.0-rc.0",
     "react-router-dom": "^5.3.0"
   }

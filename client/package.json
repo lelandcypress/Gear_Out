@@ -1,5 +1,5 @@
 {
-  "name": "Gear_Out",
+  "name": "gearout",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001",

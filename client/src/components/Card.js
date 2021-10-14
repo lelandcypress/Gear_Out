@@ -16,7 +16,7 @@ const Card = (props) => {
       cardLink = `/`;
       break;
   }
-
+  console.log("PROPPPSSSS!!!!!", props);
   return (
     <>
       <div className="card costume-card">

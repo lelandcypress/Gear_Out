@@ -45,29 +45,29 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-        <StoreProvider>
-          <Navigation />
-          <Cart />
-          <Switch>
-            <Route exact path="/" component={homePage} />
-            <Route exact path="/search/:query" component={SearchResults} />
-            <Route exact path="/items/:id" component={Item} />
-            <Route exact path="/login" component={LoginSignup} />
-            <Route exact path="/profile" component={UserProfile} />
-            <Route
-              exact
-              path="/cart/"
-              component={
-                {
-                  /* Shopping Cart Page */
+          <StoreProvider>
+            <Navigation />
+            <Cart />
+            <Switch>
+              <Route exact path="/" component={homePage} />
+              <Route exact path="/search/:query" component={SearchResults} />
+              <Route exact path="/items/:id" component={Item} />
+              <Route exact path="/login" component={LoginSignup} />
+              <Route exact path="/profile" component={UserProfile} />
+              <Route
+                exact
+                path="/cart/"
+                component={
+                  {
+                    /* Shopping Cart Page */
+                  }
                 }
-              }
-            />
-            {/* If path incorrect/ nonexistent item, show 404 page */}
-            <Route render={() => <h1>404: Not Found</h1>} />
-          </Switch>
-          <Footer />
-              </StoreProvider>
+              />
+              {/* If path incorrect/ nonexistent item, show 404 page */}
+              <Route render={() => <h1>404: Not Found</h1>} />
+            </Switch>
+            <Footer />
+          </StoreProvider>
         </>
       </Router>
     </ApolloProvider>

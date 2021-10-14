@@ -15,7 +15,6 @@ import Stack from "react-bootstrap/Stack";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
-import Badge from "react-bootstrap/badge";
 import { useStoreContext } from '../utils/GlobalState';
 import { idbPromise } from '../utils/helpers';
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
@@ -79,11 +78,6 @@ const Item = ({props}) => {
               <Card.Header>
                 <h3>{item.name}</h3>
 
-                <h5>
-                  <Badge bg="secondary">
-                    {item.available ? "In Stock" : "Out of Stock"}
-                  </Badge>
-                </h5>
               </Card.Header>
               <Image src={item.image} fluid />
               <Card.Body>

@@ -11,7 +11,7 @@ function Footer() {
         <Container>
           <Nav className="mx-auto">
             <NavbarBrand>© 2021</NavbarBrand>
-            <Nav.Link href="#temp">About Us</Nav.Link>
+            <Nav.Link href="/about">About Us</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
           </Nav>
         </Container>

@@ -42,7 +42,7 @@ function Contact() {
     <div className="container">
       <div className="card responsive-width mx-2 p-4 my-5 border border-dark">
         <div>
-          <h1>Contact</h1>
+          <h3>Have Questions, or Suggestions? We'd love to hear from you</h3>
         </div>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">

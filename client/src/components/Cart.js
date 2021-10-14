@@ -18,10 +18,11 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
+  console.log("line 21: ", state)
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-  console.log(data);
+  console.log("line 23 data: ", data);
   useEffect(() => {
-  console.log(data);
+  console.log("line 25 data: " , data);
     if (data) {
       stripePromise.then((res) => {
         console.log(res);
@@ -33,7 +34,7 @@ const Cart = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
+      dispatch({ type: ADD_MULTIPLE_TO_CART, items: [...cart] });
     }
 
     if (!state.cart.length) {
@@ -54,16 +55,16 @@ const Cart = () => {
   }
 
   function submitCheckout() {
-    const productIds = [];
+    const itemIds = [];
 
     state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
-        productIds.push(item._id);
+        itemIds.push(item._id);
       }
     });
 
     getCheckout({
-      variables: { products: productIds },
+      variables: { items: itemIds },
     });
   }
 

@@ -36,6 +36,7 @@ const resolvers = {
     },
 
     checkout: async (parent, args, context) => {
+      console.log(args);
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ items: args.items });
       const line_items = [];

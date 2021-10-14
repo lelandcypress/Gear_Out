@@ -64,10 +64,7 @@ const Item = ({props}) => {
     );
   };
 
-  // const handleOrder = async (e) => {
-  //   e.preventDefault();
-  //   await addItemToOrder;
-  // };
+ 
 
   return (
     <Container>

@@ -41,38 +41,34 @@ const UserProfile = (props) => {
   };
 
   return (
-      <Row>
-        <Col>
-          <Card border="dark">
-            <Card.Header>
-              <h3>PROFILE</h3>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                Username:{user.username}
-              </Card.Text>
-              <Card.Text>
-                Email: {user.email}
-              </Card.Text>
-            </Card.Body>
-            <Stack gap={2}>
-              <div className="border">
-                <p>User Reviews</p>
-                <div>5 out of 5 Stars</div>
-                <div>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
+    <Row>
+      <Col>
+        <Card border="dark">
+          <Card.Header>
+            <h3>PROFILE</h3>
+          </Card.Header>
+          <Card.Body>
+            <Card.Text>Username:{user.username}</Card.Text>
+            <Card.Text>Email: {user.email}</Card.Text>
+          </Card.Body>
+          <Card.Text>
+            <div className="border">
+              <p>User Reviews</p>
+              <div>5 out of 5 Stars</div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </div>
-            </Stack>
-          </Card>
-        </Col>
-        <Col>
-          <Card border="dark">
-            <Card.Header>
-              <h3>Orders</h3>{" "}
-            </Card.Header>
-            {user.orders?
+            </div>
+          </Card.Text>
+        </Card>
+      </Col>
+      <Col>
+        <Card border="dark">
+          <Card.Header>
+            <h3>Orders</h3>{" "}
+          </Card.Header>
+          {user.orders ? (
             <>
               {user.orders.map((order) => {
                 return (
@@ -81,7 +77,9 @@ const UserProfile = (props) => {
                       <p>Rental Start:{order.startDate}</p>
                       <p>Due Back:{order.endDate}</p>
 
-                      {order.items.map((item) => <p>{item.name}</p>)}
+                      {order.items.map((item) => (
+                        <p>{item.name}</p>
+                      ))}
 
                       <Button onClick={handleReturn}>Return</Button>
                     </Card.Text>
@@ -89,13 +87,11 @@ const UserProfile = (props) => {
                 );
               })}
             </>
-            :
-            null
-            }
-          </Card>
-        </Col>
-      </Row>
-    );
-  }
+          ) : null}
+        </Card>
+      </Col>
+    </Row>
+  );
+};
 
 export default UserProfile;

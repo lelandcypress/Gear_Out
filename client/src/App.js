@@ -19,6 +19,7 @@ import { StoreProvider } from "./utils/GlobalState";
 import LoginSignup from "./pages/LoginSignup";
 import UserProfile from "./pages/User";
 import Cart from "./components/Cart";
+import Contact from "./pages/Contact";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -54,6 +55,8 @@ function App() {
               <Route exact path="/items/:id" component={Item} />
               <Route exact path="/login" component={LoginSignup} />
               <Route exact path="/profile" component={UserProfile} />
+              <Route exact path="/contact" component={Contact} />
+
               <Route
                 exact
                 path="/cart/"

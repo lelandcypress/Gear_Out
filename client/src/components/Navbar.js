@@ -73,7 +73,7 @@ function Navigation() {
                 <Nav.Link  as={Link} to="/search/Star Wars" eventKey="link-2">Star Wars</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link  as={Link} to="/search/Video Games" eventKey="link-2">Video Games</Nav.Link>
+                <Nav.Link  as={Link} to="/search/Video Games" eventKey="link-3">Video Games</Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>

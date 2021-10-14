@@ -1,160 +1,132 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { MUTATION_ADD_USER, MUTATION_LOGIN } from '../utils/mutations';
-import Auth from '../utils/auth-client';
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { MUTATION_ADD_USER, MUTATION_LOGIN } from "../utils/mutations";
+import SignupModal from "../components/SignupModal";
+import Auth from "../utils/auth-client";
+
 const LoginSignup = () => {
+  // MODAL LOGIC
+  const [modalShow, setModalShow] = useState(false);
 
-    /* LOGIN LOGIC */
-    const [loginUserFormData, setLoginUserFormData] = useState({ email: '', password: '' });
-    const [logIn] = useMutation(MUTATION_LOGIN);
-  
-    const handleLoginInputChange = (event) => {
-      const { name, value } = event.target;
-      setLoginUserFormData({ ...loginUserFormData, [name]: value });
-    };
-  
-    const handleLoginFormSubmit = async (event) => {
-      event.preventDefault();
-  
-      try {
-        const response = await logIn({
-          variables: {
-            email: loginUserFormData.email,
-            password: loginUserFormData.password,
-          }
-        });
-  
-        const { token, user } = response.data.login;
-        Auth.login(token);
-      } catch (err) {
-        console.error(err);
-      }
-  
-      setLoginUserFormData({
-        email: '',
-        password: '',
+  /* LOGIN LOGIC */
+  const [loginUserFormData, setLoginUserFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [logIn] = useMutation(MUTATION_LOGIN);
+
+  const handleLoginInputChange = (event) => {
+    const { name, value } = event.target;
+    setLoginUserFormData({ ...loginUserFormData, [name]: value });
+  };
+
+  const handleLoginFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await logIn({
+        variables: {
+          email: loginUserFormData.email,
+          password: loginUserFormData.password,
+        },
       });
-    };
 
-    /* SIGNUP LOGIC */
-    const [signupUserFormData, setSignupUserFormData] = useState({ username: '', email: '', password: '' });
-    const [signUp] = useMutation(MUTATION_ADD_USER);
-  
-    const handleSignupInputChange = (event) => {
-      const { name, value } = event.target;
-      setSignupUserFormData({ ...signupUserFormData, [name]: value });
-    };
-  
-    const handleSignupFormSubmit = async (event) => {
-      event.preventDefault();
-  
-      try {
-  
-        console.log(signupUserFormData);
-  
-        const response = await signUp({
-          variables: {
-            username: signupUserFormData.username,
-            email: signupUserFormData.email,
-            password: signupUserFormData.password,
-          }
-        });
-  
-        const { token, user } = response.data.addUser;
-        Auth.login(token);
-      } catch (err) {
-        console.error(err);
-      }
-  
-      setSignupUserFormData({
-        username: '',
-        email: '',
-        password: '',
-      });
-    };
+      const { token, user } = response.data.login;
+      Auth.login(token);
+    } catch (err) {
+      console.error(err);
+    }
 
-    return (
-        <>
-            <span>
-                <div>
-                <form onSubmit={handleLoginFormSubmit}>
-                        <fieldset>
-                            <legend>Log In</legend>
-                            <label htmlFor='email'>Email</label>
-                            <input
-                                type='email'
-                                placeholder='Your email address'
-                                name='email'
-                                onChange={handleLoginInputChange}
-                                value={loginUserFormData.email}
-                                required
-                            />
-                            <label htmlFor='password'>Password</label>
-                            <input
-                                type='password'
-                                placeholder='Your password'
-                                name='password'
-                                onChange={handleLoginInputChange}
-                                value={loginUserFormData.password}
-                                required
-                            />
-                            <button
-                                disabled={!(loginUserFormData.email && loginUserFormData.password)}
-                                type='submit'
-                                variant='success'
-                            >
-                            Submit
-                            </button>
-                        </fieldset>
-                    </form>
-                </div>
-            </span>
-            <span>
-                <div>
-                    <form onSubmit={handleSignupFormSubmit}>
-                        <fieldset>
-                            <legend>Sign Up</legend>
-                            <label htmlFor="username">Username</label>
-                            <input
-                                type='text'
-                                placeholder='Your username'
-                                name='username'
-                                onChange={handleSignupInputChange}
-                                value={signupUserFormData.username}
-                                required
-                            />
-                            <label htmlFor='email'>Email</label>
-                            <input
-                                type='email'
-                                placeholder='Your email address'
-                                name='email'
-                                onChange={handleSignupInputChange}
-                                value={signupUserFormData.email}
-                                required
-                            />
-                            <label htmlFor='password'>Password</label>
-                            <input
-                                type='password'
-                                placeholder='Your password'
-                                name='password'
-                                onChange={handleSignupInputChange}
-                                value={signupUserFormData.password}
-                                required
-                            />
-                            <button
-                                disabled={!(signupUserFormData.username && signupUserFormData.email && signupUserFormData.password)}
-                                type='submit'
-                                variant='success'
-                            >
-                            Submit
-                            </button>
-                        </fieldset>
-                    </form>
-                </div>
-            </span>
-        </>
-    );
-}
+    setLoginUserFormData({
+      email: "",
+      password: "",
+    });
+  };
+
+  /* SIGNUP LOGIC */
+
+  return (
+    <>
+      <section className="vh-100">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-6 text-black">
+              <div className="px-5 ms-xl-4">
+                <i className="fas fa-crow fa-2x me-3 pt-5 mt-xl-4"></i>
+              </div>
+
+              <div className="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                <form className="main-form" onSubmit={handleLoginFormSubmit}>
+                  <h3 className="fw-normal mb-3 pb-3 letter-spacing">Log in</h3>
+
+                  <div className="form-outline mb-4">
+                    <input
+                      type="email"
+                      name="email"
+                      className="form-control form-control-lg"
+                      onChange={handleLoginInputChange}
+                      value={loginUserFormData.email}
+                    />
+                    <label className="form-label" for="form2Example18">
+                      Email address
+                    </label>
+                  </div>
+
+                  <div className="form-outline mb-4">
+                    <input
+                      type="password"
+                      name="password"
+                      className="form-control form-control-lg"
+                      onChange={handleLoginInputChange}
+                      value={loginUserFormData.password}
+                    />
+                    <label className="form-label" for="form2Example28">
+                      Password
+                    </label>
+                  </div>
+
+                  <div className="pt-1 mb-4">
+                    <button
+                      className="btn btn-info btn-lg btn-block"
+                      variant="success"
+                      type="submit"
+                      disabled={
+                        !(loginUserFormData.email && loginUserFormData.password)
+                      }
+                    >
+                      Login
+                    </button>
+                  </div>
+                  <p>
+                    Don't have an account?{" "}
+                    <a
+                      href="#!"
+                      className="link-info"
+                      onClick={() => setModalShow(true)}
+                    >
+                      Register here
+                    </a>
+                  </p>
+                  <SignupModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                  />
+                </form>
+              </div>
+            </div>
+            <div className="col-sm-6 px-0 d-none d-sm-block">
+              <img
+                alt="Login image"
+                src="./assets/images/login-bg.jpg"
+                className="w-100 vh-100 big-img"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default LoginSignup;
 

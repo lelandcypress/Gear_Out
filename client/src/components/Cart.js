@@ -18,13 +18,13 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
-  console.log(state);
-  console.log(dispatch);
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-
+  console.log(data);
   useEffect(() => {
+  console.log(data);
     if (data) {
       stripePromise.then((res) => {
+        console.log(res);
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }

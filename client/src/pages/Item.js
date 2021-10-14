@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
+
 import { useMutation } from "@apollo/client";
 import {
   MUTATION_ADD_ITEM_TO_ORDER,
@@ -80,7 +81,7 @@ const Item = ({ props }) => {
                 <div>Price: ${item.price}</div>
               </Card.Body>
               {item.available ? (
-                <Button  variant="primary" onClick={addToCart}>
+                <Button variant="primary" onClick={addToCart}>
                   Reserve It Now
                 </Button>
               ) : (

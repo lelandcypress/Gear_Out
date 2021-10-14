@@ -14,7 +14,7 @@ import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
 import Homepage from "./pages/Homepage";
-import SearchResults from "./pages/searchResults";
+import SearchResults from "./pages/SearchResults";
 import { StoreProvider } from "./utils/GlobalState";
 import LoginSignup from "./pages/LoginSignup";
 import UserProfile from "./pages/User";

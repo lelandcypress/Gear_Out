@@ -64,11 +64,11 @@ const Item = ({ props }) => {
   };
 
   return (
-    <Container>
+    <Container className="mt-3">
       {!loading && item !== null ? (
         <Row>
           <Col>
-            <Card border="dark">
+            <Card border="dark mb-5">
               <Card.Header>
                 <h3>{item.name}</h3>
               </Card.Header>
@@ -80,7 +80,7 @@ const Item = ({ props }) => {
                 <div>Price: ${item.price}</div>
               </Card.Body>
               {item.available ? (
-                <Button variant="primary" onClick={addToCart}>
+                <Button  variant="primary" onClick={addToCart}>
                   Reserve It Now
                 </Button>
               ) : (

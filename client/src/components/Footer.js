@@ -6,7 +6,7 @@ import "./Navbar.css";
 
 function Footer() {
   return (
-    <div className="fixed-bottom">
+    <div className="mt-3 fixed-bottom">
       <Navbar bg="dark" variant="dark">
         <Container>
           <Nav className="mx-auto">

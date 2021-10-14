@@ -34,13 +34,14 @@ const UserProfile = (props) => {
     );
   }
   const handleReturn = async (e) => {
+    console.log("Button firing");
     e.preventDefault();
-    await returnItem;
-    await toggleAvailability;
+    await returnItem();
+    await toggleAvailability();
   };
 
   return (
-    <Row>
+    <Row className="m-2">
       <Col>
         <Card border="dark">
           <Card.Header>

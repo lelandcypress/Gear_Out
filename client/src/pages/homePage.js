@@ -24,7 +24,7 @@ function Homepage() {
     <>
       <Jumbotron />
       {/* <ul> */}
-      <div class="container-fluid text-center">
+      <div className="container-fluid text-center">
         <div className="row">
           {results.map((item) => {
             return (

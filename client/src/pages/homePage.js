@@ -1,9 +1,8 @@
 import Jumbotron from "../components/Jumbotron";
-import Card from '../components/Card';
-import { useQuery } from '@apollo/client';
-import { QUERY_FEATURED_ITEMS } from '../utils/queries';
+import Card from "../components/Card";
+import { useQuery } from "@apollo/client";
+import { QUERY_FEATURED_ITEMS } from "../utils/queries";
 import React from "react";
-
 
 function Homepage() {
   const { loading, data } = useQuery(QUERY_FEATURED_ITEMS);
@@ -38,6 +37,7 @@ function Homepage() {
                   price={item.price}
                   image={item.image}
                   rating={item.rating}
+                  available={item.available}
                 />
               </div>
             );
@@ -47,5 +47,5 @@ function Homepage() {
       {/* </ul> */}
     </>
   );
-      }
+}
 export default Homepage;

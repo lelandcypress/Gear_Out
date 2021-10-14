@@ -7,7 +7,8 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import LinkContainer from "react-router-bootstrap";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Auth from '../utils/auth-client';
 
 function Navigation() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -16,29 +17,21 @@ function Navigation() {
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Gear-Out!</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">Gear-Out!</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              {/* <Nav.Link href="#features">Should We Have</Nav.Link>
-              <Nav.Link href="#pricing">Something Here?</Nav.Link> */}
-              {/* <NavDropdown title="Featured Searches" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Search 1</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Search 2</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Search 3</NavDropdown.Item>
-              </NavDropdown> */}
-            </Nav>
             <Form className="d-flex">
               <FormControl
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
-                onChange={(value) => {
+                onChange={(e) => {
+                  const value = e.target.value;
                   setSearchQuery(value);
                 }}
               />
-              {/* <LinkContainer to={`/search/${searchQuery}`}>
+              <Nav.Link as={Link} to={`/search/${searchQuery}`}>
                   <Button
                     variant="outline-primary"
                     onSubmit={(event) => {
@@ -48,38 +41,40 @@ function Navigation() {
                   >
                     Search
                   </Button>
-              </LinkContainer> */}
+              </Nav.Link>
             </Form>
             <Nav>
-              <Nav.Link href="#deets">Login</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Profile
-              </Nav.Link>
+              {Auth.loggedIn() ?
+                <>
+                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
+                </>
+                :
+                <>
+                  <Nav.Link as={Link} to="/login">Login/Signup</Nav.Link>
+                </>
+              }
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand>Categories</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav>
-              <Nav.Link href="#deets">
-                Login
-              </Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Profile
-              </Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Profile
-              </Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Profile
-              </Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Profile
-              </Nav.Link>
+            <Nav justify defaultActiveKey="/home">
+              <Nav.Item>
+                <Nav.Link as={Link} to="/search/Superhero">Superhero</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link  as={Link} to="/search/Fantasy" eventKey="link-1">Fantasy</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link  as={Link} to="/search/Star Wars" eventKey="link-2">Star Wars</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link  as={Link} to="/search/Video Games" eventKey="link-3">Video Games</Nav.Link>
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>

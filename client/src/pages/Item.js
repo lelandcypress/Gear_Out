@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
+
 import { useMutation } from "@apollo/client";
 import {
   MUTATION_ADD_ITEM_TO_ORDER,
@@ -64,11 +65,11 @@ const Item = ({ props }) => {
   };
 
   return (
-    <Container>
+    <Container className="mt-3">
       {!loading && item !== null ? (
         <Row>
           <Col>
-            <Card border="dark">
+            <Card border="dark mb-5">
               <Card.Header>
                 <h3>{item.name}</h3>
               </Card.Header>

@@ -63,7 +63,7 @@ const Item = ({ props }) => {
       </>
     );
   };
-
+  console.log(item);
   return (
     <Container className="mt-3">
       {!loading && item !== null ? (

@@ -108,15 +108,27 @@ const resolvers = {
       return { token, user };
     },
 
-    addItemToOrder: async (parent, args, context) => {
+    // addItemToOrder: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return await User.findbyIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $addToSet: { orders: args } },
+    //       { new: true }
+    //     );
+    //   }
+    //   throw new AuthenticationError("You need to log in");
+    // },
+    addOrder: async (parent, { products }, context) => {
+      console.log(context);
       if (context.user) {
-        return await User.findbyIdAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { orders: args } },
-          { new: true }
-        );
+        const order = new Order({ products });
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+
+        return order;
       }
-      throw new AuthenticationError("You need to log in");
+
+      throw new AuthenticationError('Not logged in');
     },
     returnItem: async (parent, args, context) => {
       if (context.user) {

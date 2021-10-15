@@ -69,7 +69,7 @@ const typeDefs = gql`
 
     login(email: String!, password: String!): Auth
 
-    addItemToOrder(orders: itemToOrder): User
+    addOrder(products: [ID]!): Order
 
     returnItem(itemId: ID!): User
 

@@ -19,6 +19,7 @@ import { useStoreContext } from "../utils/GlobalState";
 import { idbPromise } from "../utils/helpers";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
 import { pluralize } from "../utils/helpers";
+import "./Item.css";
 
 const Item = ({ props }) => {
   const [state, dispatch] = useStoreContext();
@@ -65,43 +66,45 @@ const Item = ({ props }) => {
   };
   console.log(item);
   return (
-    <Container className="mt-3">
+    <Container className="mt-3 mb-5">
       {!loading && item !== null ? (
         <Row>
           <Col>
-            <Card border="dark mb-5">
+            <Card className="mb-5 item-shadow">
               <Card.Header>
-                <h3>{item.name}</h3>
+                <h2>{item.name}</h2>
               </Card.Header>
               <Image src={`/images/${item.image}`} fluid />
               <Card.Body>
                 <Card.Text>
                   Carried By:{item.vendor} {item.location}
                 </Card.Text>
-                <div>Price: ${item.price}</div>
+                Price: ${item.price}
               </Card.Body>
               {item.available ? (
-                <Button variant="primary" onClick={addToCart}>
+                <Button className="mb-2" variant="info" onClick={addToCart}>
                   Reserve It Now
                 </Button>
               ) : (
-                <Button variant="secondary">Unavailable</Button>
+                <Button className="mb-2" variant="secondary">
+                  Unavailable
+                </Button>
               )}
             </Card>
           </Col>
           <Col>
-            <Card border="dark">
+            <Card className="item-shadow">
               <Card.Header>Description</Card.Header>
               <Card.Body>{item.longDescription}</Card.Body>
               <div>
                 <div className="border custom-stack">
-                  <p>User Reviews</p>
+                  <h2>User Reviews</h2>
 
                   {Array.isArray(item.rating) && item.rating.length > 0
                     ? item.rating.map((rating, index) => {
                         return (
                           <div key={index}>
-                            <div>{rating.rating} out of 5 Stars</div>
+                            <h4>{rating.rating} out of 5 Stars</h4>
                             <div>{rating.comment}</div>
                           </div>
                         );

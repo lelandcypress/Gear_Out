@@ -9,7 +9,7 @@ export const QUERY_ME = gql`
       password
       orders {
         _id
-        startDate
+        purchaseDate
         endDate
         items {
           _id

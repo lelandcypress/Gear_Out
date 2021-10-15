@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { useQuery } from "@apollo/client";
 import Auth from "../utils/auth-client";
 import { Redirect } from "react-router-dom";
@@ -42,6 +42,54 @@ const UserProfile = (props) => {
   };
 
   return (
+<<<<<<< HEAD
+    <Row>
+      <Col>
+        <Card border="dark">
+          <Card.Header>
+            <h3>PROFILE</h3>
+          </Card.Header>
+          <Card.Body>
+            <Card.Text>Username:{user.username}</Card.Text>
+            <Card.Text>Email: {user.email}</Card.Text>
+          </Card.Body>
+<<<<<<< HEAD
+          <div className="border">
+            <p>User Reviews</p>
+            <div>5 out of 5 Stars</div>
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+          </div>
+=======
+          <Card.Text>
+            <div className="border custom-stack">
+              <p>User Reviews</p>
+              <div>5 out of 5 Stars</div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+          </Card.Text>
+>>>>>>> master
+        </Card>
+      </Col>
+      <Col>
+        <Card border="dark">
+          <Card.Header>
+            <h3>Orders</h3>{" "}
+          </Card.Header>
+          {user.orders ? (
+            <>
+              {user.orders.map((order) => {
+                return (
+                  <Card.Body>
+                    <Card.Text border="dark">
+                      <p>Rental Start:{order.startDate}</p>
+                      <p>Due Back:{order.endDate}</p>
+=======
     <Container>
       <Row className="m-2">
         <Col>
@@ -78,11 +126,29 @@ const UserProfile = (props) => {
                       <Card.Text border="dark">
                         <p>Rental Start:{order.startDate}</p>
                         <p>Due Back:{order.endDate}</p>
+>>>>>>> master
 
                         {order.items.map((item) => (
                           <p>{item.name}</p>
                         ))}
 
+<<<<<<< HEAD
+                      <Button onClick={handleReturn}>Return</Button>
+                    </Card.Text>
+                  </Card.Body>
+                );
+              })}
+            </>
+          ) : null}
+<<<<<<< HEAD
+=======
+
+          <Button onClick={handleReturn}>Return</Button>
+>>>>>>> master
+        </Card>
+      </Col>
+    </Row>
+=======
                         <Button onClick={handleReturn}>Return</Button>
                       </Card.Text>
                     </Card.Body>
@@ -96,6 +162,7 @@ const UserProfile = (props) => {
         </Col>
       </Row>
     </Container>
+>>>>>>> master
   );
 };
 

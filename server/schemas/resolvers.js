@@ -1,12 +1,11 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Items, User } = require("../models");
-const Order = require('../models/Order');
+const Order = require("../models/Order");
 
 const { signToken } = require("../utils/auth");
 // const stripe = require("stripe")(process.env.STRIPE_KEY);
 // Use this below if one above does not work
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
-
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
@@ -22,11 +21,13 @@ const resolvers = {
     },
 
     featuredItems: async () => {
-      return await Items.aggregate([{
-        $sample: {
-          size: 6,
+      return await Items.aggregate([
+        {
+          $sample: {
+            size: 6,
+          },
         },
-      }]);
+      ]);
     },
 
     categorySearch: async (parent, { categoryQuery }) => {
@@ -78,7 +79,9 @@ const resolvers = {
     },
 
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ $or: [{ username: email }, { email: email }] });
+      const user = await User.findOne({
+        $or: [{ username: email }, { email: email }],
+      });
       if (!user) {
         throw new AuthenticationError("Invalid Login Credentials");
       }
@@ -105,7 +108,7 @@ const resolvers = {
       if (context.user) {
         return await User.findbyIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { orders: context.items._id } },
+          { $pull: { orders: args.items._id } },
           { new: true }
         );
       }

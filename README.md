@@ -29,31 +29,28 @@ No installation necessary if accessing this from the customer URL. As of this it
 - Redux
 - Stripe
 
-
 ## Usage
 
 1. Create an account by providing your username and password.
 2. Once you are logged in, you are ready to shop from our authorized vendors. Maybe one of our featured items catches your eye
 
----SCREENSHOT HERE
+![Homepage](./client/public/images/hompage.PNG)
 
-3. Perhaps a helpful category search can narrow down what you are looking for 
+3. Perhaps a helpful category search can narrow down what you are looking for
 
----SCREENSHOT HERE
+![Category Page](./client/public/images/categoryreadme.PNG)
 
 4. Each item card will give you the information you need to select your next outfit
 
----SCREENSHOT HERE
+![Category Page](./client/public/images/itemcard.PNG)
 
 5. Check out through our seemless Stripe integration
 
----SCREENSHOT HERE
-
+![Stripe](./client/public/images/stripecard.PNG)
 
 6. Manage your returns through your user profile
 
 ---SCREENSHOT HERE
-
 
 ## License
 
@@ -77,4 +74,3 @@ https://github.com/PRicoSaint
 https://github.com/radams017
 https://github.com/jcpickens0215
 https://github.com/lelandcypress
-

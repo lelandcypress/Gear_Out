@@ -21,7 +21,7 @@ const UserProfile = (props) => {
   const { loading, data } = useQuery(QUERY_ME);
 
   const user = data?.me || {};
-
+  console.log(user);
   // If you aren't logged in, go to home
   if (!Auth.loggedIn()) {
     return <Redirect to="/" />;
@@ -53,16 +53,15 @@ const UserProfile = (props) => {
               <Card.Text>Username:{user.username}</Card.Text>
               <Card.Text>Email: {user.email}</Card.Text>
             </Card.Body>
-            <Card.Text>
-              <div className="border custom-stack">
-                <p>User Reviews</p>
-                <div>5 out of 5 Stars</div>
-                <div>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
+
+            <div className="border custom-stack">
+              <p>User Reviews</p>
+              <div>5 out of 5 Stars</div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </div>
-            </Card.Text>
+            </div>
           </Card>
         </Col>
         <Col>

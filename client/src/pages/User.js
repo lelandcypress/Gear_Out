@@ -11,7 +11,6 @@ import { QUERY_ME } from "../utils/queries";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Stack from "react-bootstrap/Stack";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
@@ -51,6 +50,7 @@ const UserProfile = (props) => {
             <Card.Text>Username:{user.username}</Card.Text>
             <Card.Text>Email: {user.email}</Card.Text>
           </Card.Body>
+<<<<<<< HEAD
           <div className="border">
             <p>User Reviews</p>
             <div>5 out of 5 Stars</div>
@@ -59,6 +59,18 @@ const UserProfile = (props) => {
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </div>
           </div>
+=======
+          <Card.Text>
+            <div className="border custom-stack">
+              <p>User Reviews</p>
+              <div>5 out of 5 Stars</div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+          </Card.Text>
+>>>>>>> master
         </Card>
       </Col>
       <Col>
@@ -86,6 +98,11 @@ const UserProfile = (props) => {
               })}
             </>
           ) : null}
+<<<<<<< HEAD
+=======
+
+          <Button onClick={handleReturn}>Return</Button>
+>>>>>>> master
         </Card>
       </Col>
     </Row>

@@ -44,6 +44,10 @@
     width: 70px;
     height: 70px;
   }
+  .trash:hover{
+    cursor: pointer;
+    
+  }
   
   .cart-closed:hover {
     transform: rotate(8deg);

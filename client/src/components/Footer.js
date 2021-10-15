@@ -11,8 +11,7 @@ function Footer() {
         <Container>
           <Nav className="mx-auto">
             <NavbarBrand>© 2021</NavbarBrand>
-            <Nav.Link href="#temp">Temp Placeholder</Nav.Link>
-            <Nav.Link href="#temp">Temp Placeholder</Nav.Link>
+            <Nav.Link>Esteban, Justin, Michael, Ryan</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

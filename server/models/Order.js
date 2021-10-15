@@ -16,6 +16,7 @@ const orderSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  endDate: { type: Date },
   products: [
     {
       type: Schema.Types.ObjectId,
@@ -26,15 +27,15 @@ const orderSchema = new Schema({
 
 
 
-// orderSchema.pre("save", async function (next) {
-//   if (this.isNew) {
-//     let dueByDate = new Date();
-//     dueByDate.setDate(dueByDate.getDate() + 7);
-//     this.endDate = dueByDate;
-//   }
+orderSchema.pre("save", async function (next) {
+  if (this.isNew) {
+    let dueByDate = new Date();
+    dueByDate.setDate(dueByDate.getDate() + 7);
+    this.endDate = dueByDate;
+  }
 
-//   next();
-// });
+  next();
+});
 
 const Order = mongoose.model('Order', orderSchema);
 

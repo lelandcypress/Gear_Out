@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Card.css";
+import Image from "react-bootstrap/Image";
 
 const Card = (props) => {
   let cardLink = "";
@@ -16,7 +17,7 @@ const Card = (props) => {
       cardLink = `/`;
       break;
   }
-  
+
   return (
     <>
       <div className="card costume-card">
@@ -26,7 +27,7 @@ const Card = (props) => {
             <h4>{props.category}</h4>
           </div>
           <div className="d-flex justify-content-center">
-            <img className="costume-img" src={props.image} alt="" />
+            <Image className="costume-img" src={props.image} alt="" fluid/>
           </div>
           <div className="card-body">
             <h4>{props.shortDesc}</h4>

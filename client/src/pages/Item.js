@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
+
 import { useMutation } from "@apollo/client";
 import {
   MUTATION_ADD_ITEM_TO_ORDER,
@@ -11,16 +12,15 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Stack from "react-bootstrap/Stack";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
-import { useStoreContext } from '../utils/GlobalState';
-import { idbPromise } from '../utils/helpers';
+import { useStoreContext } from "../utils/GlobalState";
+import { idbPromise } from "../utils/helpers";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
 import { pluralize } from "../utils/helpers";
 
-const Item = ({props}) => {
+const Item = ({ props }) => {
   const [state, dispatch] = useStoreContext();
   const id = useParams();
   const [item, setItem] = useState(null);
@@ -37,25 +37,25 @@ const Item = ({props}) => {
   // const [addItemToOrder, { error }] = useMutation(MUTATION_ADD_ITEM_TO_ORDER);
   // const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
   const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === id._id)
+    const itemInCart = cart.find((cartItem) => cartItem._id === id._id);
     if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: id._id,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
-      idbPromise('cart', 'put', {
+      idbPromise("cart", "put", {
         ...itemInCart,
-        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
     } else {
       dispatch({
         type: ADD_TO_CART,
-        item: { ...item, purchaseQuantity: 1 }
+        item: { ...item, purchaseQuantity: 1 },
       });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
+      idbPromise("cart", "put", { ...item, purchaseQuantity: 1 });
     }
-  }
+  };
   const loadComponent = () => {
     return (
       <>
@@ -64,20 +64,14 @@ const Item = ({props}) => {
     );
   };
 
-  // const handleOrder = async (e) => {
-  //   e.preventDefault();
-  //   await addItemToOrder;
-  // };
-
   return (
-    <Container>
+    <Container className="mt-3">
       {!loading && item !== null ? (
         <Row>
           <Col>
-            <Card border="dark">
+            <Card border="dark mb-5">
               <Card.Header>
                 <h3>{item.name}</h3>
-
               </Card.Header>
               <Image src={`/images/${item.image}`} fluid />
               <Card.Body>
@@ -99,7 +93,7 @@ const Item = ({props}) => {
             <Card border="dark">
               <Card.Header>Description</Card.Header>
               <Card.Body>{item.longDescription}</Card.Body>
-              <div className="stack-wrapper">
+              <div>
                 <div className="border custom-stack">
                   <p>User Reviews</p>
 

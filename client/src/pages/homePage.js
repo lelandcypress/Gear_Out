@@ -21,7 +21,7 @@ function Homepage() {
   }
 
   return (
-    <>
+    <div className="pb-5">
       <Jumbotron />
       {/* <ul> */}
       <div className="container-fluid text-center">
@@ -45,7 +45,7 @@ function Homepage() {
         </div>
       </div>
       {/* </ul> */}
-    </>
+    </div>
   );
 }
 export default Homepage;

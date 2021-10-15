@@ -18,10 +18,42 @@ An E-Commerce Portal meant to provide access to high quality costumes at an affo
 
 No installation necessary if accessing this from the customer URL. As of this iteration you will only need to create a username and password to search our database.
 
+### Tech Used
+
+- React
+- Bootstrap
+- JavaScript
+- MongoDB
+- Mongoose
+- GraphQL
+- Redux
+- Stripe
+
+
 ## Usage
 
 1. Create an account by providing your username and password.
-2. TO BE DEVELOPED FURTHER.
+2. Once you are logged in, you are ready to shop from our authorized vendors. Maybe one of our featured items catches your eye
+
+---SCREENSHOT HERE
+
+3. Perhaps a helpful category search can narrow down what you are looking for 
+
+---SCREENSHOT HERE
+
+4. Each item card will give you the information you need to select your next outfit
+
+---SCREENSHOT HERE
+
+5. Check out through our seemless Stripe integration
+
+---SCREENSHOT HERE
+
+
+6. Manage your returns through your user profile
+
+---SCREENSHOT HERE
+
 
 ## License
 
@@ -39,6 +71,10 @@ GraphQL sandbox can be accessed via localhost 3001/Graphql. Make sure queries an
 
 Got questions, or are interested in collaborating?
 
-Github:https://github.com/
+Github:
 
-Email:
+https://github.com/PRicoSaint
+https://github.com/radams017
+https://github.com/jcpickens0215
+https://github.com/lelandcypress
+

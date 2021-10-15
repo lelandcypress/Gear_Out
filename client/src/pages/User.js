@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { useQuery } from "@apollo/client";
 import Auth from "../utils/auth-client";
 import { Redirect } from "react-router-dom";
@@ -11,9 +11,9 @@ import { QUERY_ME } from "../utils/queries";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Stack from "react-bootstrap/Stack";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 
 const UserProfile = (props) => {
   const [returnItem, { error }] = useMutation(MUTATION_RETURN_ITEM);
@@ -35,28 +35,26 @@ const UserProfile = (props) => {
     );
   }
   const handleReturn = async (e) => {
+    console.log("Button firing");
     e.preventDefault();
-    await returnItem;
-    await toggleAvailability;
+    await returnItem();
+    await toggleAvailability();
   };
 
   return (
-      <Row>
+    <Container>
+      <Row className="m-2">
         <Col>
           <Card border="dark">
             <Card.Header>
               <h3>PROFILE</h3>
             </Card.Header>
             <Card.Body>
-              <Card.Text>
-                Username:{user.username}
-              </Card.Text>
-              <Card.Text>
-                Email: {user.email}
-              </Card.Text>
+              <Card.Text>Username:{user.username}</Card.Text>
+              <Card.Text>Email: {user.email}</Card.Text>
             </Card.Body>
-            <Stack gap={2}>
-              <div className="border">
+            <Card.Text>
+              <div className="border custom-stack">
                 <p>User Reviews</p>
                 <div>5 out of 5 Stars</div>
                 <div>
@@ -64,7 +62,7 @@ const UserProfile = (props) => {
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </div>
               </div>
-            </Stack>
+            </Card.Text>
           </Card>
         </Col>
         <Col>
@@ -72,30 +70,31 @@ const UserProfile = (props) => {
             <Card.Header>
               <h3>Orders</h3>{" "}
             </Card.Header>
-            {user.orders?
-            <>
-              {user.orders.map((order) => {
-                return (
-                  <Card.Body>
-                    <Card.Text border="dark">
-                      <p>Rental Start:{order.startDate}</p>
-                      <p>Due Back:{order.endDate}</p>
+            {user.orders ? (
+              <>
+                {user.orders.map((order) => {
+                  return (
+                    <Card.Body>
+                      <Card.Text border="dark">
+                        <p>Rental Start:{order.startDate}</p>
+                        <p>Due Back:{order.endDate}</p>
 
-                      {order.items.map((item) => <p>{item.name}</p>)}
+                        {order.items.map((item) => (
+                          <p>{item.name}</p>
+                        ))}
 
-                      <Button onClick={handleReturn}>Return</Button>
-                    </Card.Text>
-                  </Card.Body>
-                );
-              })}
-            </>
-            :
-            null
-            }
+                        <Button onClick={handleReturn}>Return</Button>
+                      </Card.Text>
+                    </Card.Body>
+                  );
+                })}
+              </>
+            ) : null}
           </Card>
         </Col>
       </Row>
-    );
-  }
+    </Container>
+  );
+};
 
 export default UserProfile;

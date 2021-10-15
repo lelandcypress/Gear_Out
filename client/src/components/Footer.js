@@ -11,12 +11,9 @@ function Footer() {
         <Container>
           <Nav className="mx-auto">
             <NavbarBrand>© 2021</NavbarBrand>
-<<<<<<< HEAD
             <Nav.Link>Esteban, Justin, Michael, Ryan</Nav.Link>
-=======
             <Nav.Link href="/about">About Us</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
->>>>>>> master
           </Nav>
         </Container>
       </Navbar>

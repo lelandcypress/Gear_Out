@@ -13,7 +13,7 @@ import Row from "react-bootstrap/Row";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
+import "./User.css";
 
 const UserProfile = (props) => {
   const [returnItem, { error }] = useMutation(MUTATION_RETURN_ITEM);
@@ -35,26 +35,23 @@ const UserProfile = (props) => {
     );
   }
   const handleReturn = async (e) => {
-    console.log("Button firing");
     e.preventDefault();
-    await returnItem();
-    await toggleAvailability();
+    await returnItem;
+    await toggleAvailability;
   };
 
   return (
-<<<<<<< HEAD
     <Row>
       <Col>
-        <Card border="dark">
+        <Card className="m-3 profile-shadow">
           <Card.Header>
-            <h3>PROFILE</h3>
+            <h3>Profile</h3>
           </Card.Header>
           <Card.Body>
-            <Card.Text>Username:{user.username}</Card.Text>
+            <Card.Text>Username: {user.username}</Card.Text>
             <Card.Text>Email: {user.email}</Card.Text>
           </Card.Body>
-<<<<<<< HEAD
-          <div className="border">
+          <div className="border custom-stack">
             <p>User Reviews</p>
             <div>5 out of 5 Stars</div>
             <div>
@@ -62,22 +59,10 @@ const UserProfile = (props) => {
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </div>
           </div>
-=======
-          <Card.Text>
-            <div className="border custom-stack">
-              <p>User Reviews</p>
-              <div>5 out of 5 Stars</div>
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-          </Card.Text>
->>>>>>> master
         </Card>
       </Col>
       <Col>
-        <Card border="dark">
+        <Card className="m-3 profile-shadow">
           <Card.Header>
             <h3>Orders</h3>{" "}
           </Card.Header>
@@ -86,83 +71,24 @@ const UserProfile = (props) => {
               {user.orders.map((order) => {
                 return (
                   <Card.Body>
-                    <Card.Text border="dark">
-                      <p>Rental Start:{order.startDate}</p>
-                      <p>Due Back:{order.endDate}</p>
-=======
-    <Container>
-      <Row className="m-2">
-        <Col>
-          <Card border="dark">
-            <Card.Header>
-              <h3>PROFILE</h3>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>Username:{user.username}</Card.Text>
-              <Card.Text>Email: {user.email}</Card.Text>
-            </Card.Body>
-            <Card.Text>
-              <div className="border custom-stack">
-                <p>User Reviews</p>
-                <div>5 out of 5 Stars</div>
-                <div>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
-              </div>
-            </Card.Text>
-          </Card>
-        </Col>
-        <Col>
-          <Card border="dark">
-            <Card.Header>
-              <h3>Orders</h3>{" "}
-            </Card.Header>
-            {user.orders ? (
-              <>
-                {user.orders.map((order) => {
-                  return (
-                    <Card.Body>
-                      <Card.Text border="dark">
-                        <p>Rental Start:{order.startDate}</p>
-                        <p>Due Back:{order.endDate}</p>
->>>>>>> master
+                    <p>Rental Start:{order.startDate}</p>
+                    <p>Due Back:{order.endDate}</p>
 
-                        {order.items.map((item) => (
-                          <p>{item.name}</p>
-                        ))}
+                    {order.items.map((item) => (
+                      <p>{item.name}</p>
+                    ))}
 
-<<<<<<< HEAD
-                      <Button onClick={handleReturn}>Return</Button>
-                    </Card.Text>
+                    <Button onClick={handleReturn}>Return</Button>
                   </Card.Body>
                 );
               })}
             </>
           ) : null}
-<<<<<<< HEAD
-=======
 
           <Button onClick={handleReturn}>Return</Button>
->>>>>>> master
         </Card>
       </Col>
     </Row>
-=======
-                        <Button onClick={handleReturn}>Return</Button>
-                      </Card.Text>
-                    </Card.Body>
-                  );
-                })}
-              </>
-            ) : null}
-
-            <Button onClick={handleReturn}>Return</Button>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
->>>>>>> master
   );
 };
 

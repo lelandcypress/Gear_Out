@@ -3,7 +3,7 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Order {
     _id: ID!
-    startDate: String
+    purchaseDate: String
     endDate: String
     items: [Items]
   }

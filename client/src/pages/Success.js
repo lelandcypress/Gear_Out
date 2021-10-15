@@ -1,19 +1,28 @@
 import React, { useEffect } from 'react';
-import { useMutation } from '@apollo/client';
 import Jumbotron from '../components/Jumbotron';
-import { MUTATION_ADD_ORDER } from '../utils/mutations';
 import { idbPromise } from '../utils/helpers';
+import { Redirect, useParams } from "react-router-dom";
+import { MUTATION_ADD_ORDER } from "../utils/mutations";
+import { useMutation } from "@apollo/client";
+
+
+
 
 function Success() {
+    const id = useParams();
   const [addOrder] = useMutation(MUTATION_ADD_ORDER);
 
+
+  
   useEffect(() => {
     async function saveOrder() {
       const cart = await idbPromise('cart', 'get');
       const items = cart.map((item) => item._id);
 
       if (items.length) {
-        const { data } = await addOrder({ variables: { items } });
+        const { data } = await addOrder( {
+            variables: { order: id },
+          });
         const itemData = data.addOrder.items;
 
         itemData.forEach((item) => {
@@ -23,11 +32,11 @@ function Success() {
 
       setTimeout(() => {
         window.location.assign('/');
-      }, 3000);
+      }, 10000);
     }
 
     saveOrder();
-  }, [addOrder]);
+  }, [id]);
 
   return (
     <div>
@@ -35,6 +44,7 @@ function Success() {
         <h1>Success!</h1>
         <h2>Thank you for your purchase!</h2>
         <h2>You will now be redirected to the home page</h2>
+        <h2>Your order number is: {id}!</h2>
       </Jumbotron>
     </div>
   );

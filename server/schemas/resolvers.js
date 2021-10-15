@@ -36,9 +36,12 @@ const resolvers = {
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ products: args.items });
+      console.log("line 39 :", order.id);
       const line_items = [];
 
       const { products } = await order.populate("products").execPopulate();
+      await Order.create(order);
+
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({
           name: products[i].name,
@@ -62,7 +65,7 @@ const resolvers = {
         payment_method_types: ["card"],
         line_items,
         mode: "payment",
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${url}/success/${order.id}`,
         cancel_url: `${url}/`,
       });
 
@@ -91,27 +94,16 @@ const resolvers = {
       return { token, user };
     },
 
-    // addItemToOrder: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return await User.findbyIdAndUpdate(
-    //       { _id: context.user._id },
-    //       { $addToSet: { orders: args } },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError("You need to log in");
-    // },
-    addOrder: async (parent, { products }, context) => {
-      console.log(context);
+    addOrder: async (parent, args, context) => {
+      console.log("line 98: ", args)
       if (context.user) {
-        const order = new Order({ products });
-
-        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
-
-        return order;
+        return await User.findbyIdAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { orders: args } },
+          { new: true }
+        );
       }
-
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError("You need to log in");
     },
     returnItem: async (parent, args, context) => {
       if (context.user) {

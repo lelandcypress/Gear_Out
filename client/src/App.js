@@ -57,20 +57,10 @@ function App() {
               <Route exact path="/search/:query" component={SearchResults} />
               <Route exact path="/items/:id" component={Item} />
               <Route exact path="/login" component={LoginSignup} />
-              <Route exact path="/success" component={Success} />
+              <Route exact path="/success/:id" component={Success} />
               <Route exact path="/profile" component={UserProfile} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/about" component={About} />
-              <Route
-                exact
-                path="/cart/"
-                component={
-                  {
-                    /* Shopping Cart Page */
-                  }
-                }
-              />
-              {/* If path incorrect/ nonexistent item, show 404 page */}
               <Route render={() => <h1>404: Not Found</h1>} />
             </Switch>
             <Footer />

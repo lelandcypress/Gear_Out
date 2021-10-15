@@ -36,7 +36,7 @@ function Navigation() {
               />
               <Nav.Link as={Link} to={`/search/${searchQuery}`}>
                 <Button
-                  variant="outline-primary"
+                  variant="outline-info"
                   onSubmit={(event) => {
                     event.preventDefault();
                     event.stopPropagation();

@@ -21,7 +21,7 @@ const UserProfile = (props) => {
   const { loading, data } = useQuery(QUERY_ME);
 
   const user = data?.me || {};
-
+  console.log(user);
   // If you aren't logged in, go to home
   if (!Auth.loggedIn()) {
     return <Redirect to="/" />;
@@ -41,6 +41,7 @@ const UserProfile = (props) => {
   };
 
   return (
+<<<<<<< HEAD
     <Row>
       <Col>
         <Card className="m-3 profile-shadow">
@@ -73,6 +74,43 @@ const UserProfile = (props) => {
                   <Card.Body>
                     <p>Rental Start:{order.startDate}</p>
                     <p>Due Back:{order.endDate}</p>
+=======
+    <Container>
+      <Row className="m-2">
+        <Col>
+          <Card border="dark">
+            <Card.Header>
+              <h3>PROFILE</h3>
+            </Card.Header>
+            <Card.Body>
+              <Card.Text>Username:{user.username}</Card.Text>
+              <Card.Text>Email: {user.email}</Card.Text>
+            </Card.Body>
+
+            <div className="border custom-stack">
+              <p>User Reviews</p>
+              <div>5 out of 5 Stars</div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+          </Card>
+        </Col>
+        <Col>
+          <Card border="dark">
+            <Card.Header>
+              <h3>Orders</h3>{" "}
+            </Card.Header>
+            {user.orders ? (
+              <>
+                {user.orders.map((order) => {
+                  return (
+                    <Card.Body>
+                      <Card.Text border="dark">
+                        <p>Rental Start:{order.startDate}</p>
+                        <p>Due Back:{order.endDate}</p>
+>>>>>>> master
 
                     {order.items.map((item) => (
                       <p>{item.name}</p>

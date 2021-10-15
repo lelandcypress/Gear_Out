@@ -64,7 +64,7 @@ const Item = ({ props }) => {
       </>
     );
   };
-
+  console.log(item);
   return (
     <Container className="mt-3 mb-5">
       {!loading && item !== null ? (

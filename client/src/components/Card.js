@@ -26,7 +26,7 @@ const Card = (props) => {
             <h4>{props.category}</h4>
           </div>
           <div className="d-flex justify-content-center">
-            <img className="costume-img" src={props.image} alt="" />
+            <img className="costume-img" src={`/images/${props.image}`} alt="" />
           </div>
           <div className="card-body">
             <h4>{props.shortDesc}</h4>

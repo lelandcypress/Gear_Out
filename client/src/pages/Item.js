@@ -79,7 +79,7 @@ const Item = ({props}) => {
                 <h3>{item.name}</h3>
 
               </Card.Header>
-              <Image src={item.image} fluid />
+              <Image src={`/images/${item.image}`} fluid />
               <Card.Body>
                 <Card.Text>
                   Carried By:{item.vendor} {item.location}

@@ -1,5 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Items, User } = require("../models");
+const Order = require('../models/Order');
+
 const { signToken } = require("../utils/auth");
 // const stripe = require("stripe")(process.env.STRIPE_KEY);
 // Use this below if one above does not work
@@ -12,18 +14,14 @@ const resolvers = {
       if (context.user) {
         return await User.findOne({ _id: context.user._id }).populate("orders");
       }
-
       throw new AuthenticationError("You need to log in");
     },
 
     getOneItem: async (parent, args, context) => {
-      console.log("test");
       return await Items.findOne({ _id: args._id });
     },
 
     featuredItems: async () => {
-
-      // return await Items.find({ available: "true" });
       return await Items.aggregate([{
         $sample: {
           size: 6,
@@ -36,23 +34,21 @@ const resolvers = {
     },
 
     checkout: async (parent, args, context) => {
-      console.log(args);
       const url = new URL(context.headers.referer).origin;
-      const order = new Order({ items: args.items });
+      const order = new Order({ products: args.items });
       const line_items = [];
 
-      const { items } = await order.populate("items").execPopulate();
-
-      for (let i = 0; i < items.length; i++) {
-        const item = await stripe.items.create({
-          name: items[i].name,
-          shortDescription: items[i].shortDescription,
-          images: [`${url}/images/${items[i].image}`],
+      const { products } = await order.populate("products").execPopulate();
+      for (let i = 0; i < products.length; i++) {
+        const product = await stripe.products.create({
+          name: products[i].name,
+          description: products[i].shortDescription,
+          images: [`${url}/${products[i].image}`],
         });
 
         const price = await stripe.prices.create({
-          item: item.id,
-          unit_amount: items[i].price * 100,
+          product: product.id,
+          unit_amount: products[i].price * 100,
           currency: "usd",
         });
 
@@ -76,18 +72,13 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, args) => {
-      //create user profile
-
       const user = await User.create(args);
-      //assign token to user
       const token = signToken(user);
-      console.log(token);
       return { token, user };
     },
 
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ $or: [{ username: email }, { email: email }] });
-      //user created
       if (!user) {
         throw new AuthenticationError("Invalid Login Credentials");
       }
@@ -97,7 +88,6 @@ const resolvers = {
         throw new AuthenticationError("Invalid Credentials");
       }
       const token = signToken(user);
-      console.log(token);
       return { token, user };
     },
 
@@ -114,23 +104,19 @@ const resolvers = {
     returnItem: async (parent, args, context) => {
       if (context.user) {
         return await User.findbyIdAndUpdate(
-          { _id: contex.user._id },
+          { _id: context.user._id },
           { $pull: { orders: context.items._id } },
           { new: true }
         );
       }
     },
 
-    toggleAvailability: async (parent, args, context) => {
-      if ((context.available = true)) {
-        return await Item.findOneAndUpdate(
-          { _id: context._id },
-          { $set: { available: false } }
-        );
-      }
-      return await Item.findOneAndUpdate(
-        { _id: context._id },
-        { $set: { available: true } }
+    toggleAvailability: async (parent, { _id }, context) => {
+      const { available } = await Items.findById(_id);
+      const toggle = !available;
+      return await Items.findOneAndUpdate(
+        { _id },
+        { $set: { available: toggle } }
       );
     },
 

@@ -74,7 +74,7 @@ const Item = ({ props }) => {
               <Card.Header>
                 <h2>{item.name}</h2>
               </Card.Header>
-              <Image src={item.image} fluid />
+              <Image src={`/images/${item.image}`} fluid />
               <Card.Body>
                 <Card.Text>
                   Carried By:{item.vendor} {item.location}

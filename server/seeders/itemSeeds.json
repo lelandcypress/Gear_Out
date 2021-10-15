@@ -8,7 +8,7 @@
         "available": true,
         "vendor": "Greg S.",
         "price": 60,
-        "image": "/assets/images/aquaman.jpg",
+        "image": "aquaman.jpg",
         "rating": {
             "rating": 4,
             "comment": "This fits great, although is tight along the midrif."
@@ -24,7 +24,7 @@
         "available": true,
         "vendor": "Costume-Magic, INC",
         "price": 300,
-        "image": "/assets/images/batman-adult.jpg",
+        "image": "batman-adult.jpg",
         "rating": {
             "rating": 5,
             "comment": "Fought many bad guys, would wear again"
@@ -40,7 +40,7 @@
         "available": true,
         "vendor": "MoreCosplay",
         "price": 60,
-        "image": "/assets/images/flash-adult.jpg",
+        "image": "flash-adult.jpg",
         "rating": {
             "rating": 4,
             "comment": "They can't catch me when I put this on!"
@@ -56,7 +56,7 @@
         "available": true,
         "vendor": "WomanCostumes",
         "price": 50,
-        "image": "/assets/images/wonderwoman-adult.webp",
+        "image": "wonderwoman-adult.webp",
         "rating": {
             "rating": 4,
             "comment": "BECAUSE I AM STRONGER THAN YESTERDAY!"
@@ -72,7 +72,7 @@
         "available": true,
         "vendor": "CheapCostumes",
         "price": 20,
-        "image": "/assets/images/thor-shirt-adult.webp",
+        "image": "thor-shirt-adult.webp",
         "rating": {
             "rating": 2,
             "comment": "You get what you pay for"
@@ -89,7 +89,7 @@
         "available": true,
         "vendor": "KidsCostumes",
         "price": 50,
-        "image": "/assets/images/thor-child.jpg",
+        "image": "thor-child.jpg",
         "rating": {
             "rating": 5,
             "comment": "My Daughter loves it!"
@@ -105,7 +105,7 @@
         "available": true,
         "vendor": "Tony S.",
         "price": 100,
-        "image": "/assets/images/ironman-legit-adult.jpg",
+        "image": "ironman-legit-adult.jpg",
         "rating": {
             "rating": 5,
             "comment": "Saved the world with this, many times. Even the universe once."
@@ -121,7 +121,7 @@
         "available": true,
         "vendor": "FantasyCosplay",
         "price": 100,
-        "image": "/assets/images/gondor-soldier.jpg",
+        "image": "gondor-soldier.jpg",
         "rating": {
             "rating": 5,
             "comment": "Defeated Sauron effortlessly with this."
@@ -137,7 +137,7 @@
         "available": true,
         "vendor": "CosplayCity",
         "price": 20,
-        "image": "/assets/images/ranger-outfit.jpg",
+        "image": "ranger-outfit.jpg",
         "rating": {
             "rating": 4,
             "comment": "Many orcs died in the wearing of this"
@@ -153,7 +153,7 @@
         "available": true,
         "vendor": "AnikiCosplay",
         "price": 100,
-        "image": "/assets/images/greenpower-ranger.jpg",
+        "image": "greenpower-ranger.jpg",
         "rating": {
             "rating": 5,
             "comment": "I could feel the power of Zord when I wore this. Would wear again"
@@ -169,7 +169,7 @@
         "available": true,
         "vendor": "CosplayCity",
         "price": 30,
-        "image": "/assets/images/thor-full-adult.jpg",
+        "image": "thor-full-adult.jpg",
         "rating": {
             "rating": 4,
             "comment": "I AM THE GOD OF THUNDER!"
@@ -185,7 +185,7 @@
         "available": true,
         "vendor": "1930Studio",
         "price": 80,
-        "image": "/assets/images/thor-hammer.jpg",
+        "image": "thor-hammer.jpg",
         "rating": {
             "rating": 5,
             "comment": "SMITE MY FOES!"
@@ -201,7 +201,7 @@
         "available": true,
         "vendor": "CostureroReal",
         "price": 100,
-        "image": "/assets/images/she-elf-blue-dress.jpg",
+        "image": "she-elf-blue-dress.jpg",
         "rating": {
             "rating": 5,
             "comment": "Felt like an elf maiden"
@@ -217,7 +217,7 @@
         "available": true,
         "vendor": "LucisWorkshop",
         "price": 50,
-        "image": "/assets/images/arwen-costume.jpg",
+        "image": "arwen-costume.jpg",
         "rating": {
             "rating": 5,
             "comment": "Frodo saved from the Nazgûl"
@@ -233,7 +233,7 @@
         "available": true,
         "vendor": "7kingdoms",
         "price": 50,
-        "image": "/assets/images/nazgul-robe.jpg",
+        "image": "nazgul-robe.jpg",
         "rating": {
             "rating": 5,
             "comment": "(Rasping Sounds)"
@@ -249,7 +249,7 @@
         "available": true,
         "vendor": "SinisterPropz",
         "price": 30,
-        "image": "/assets/images/morgul-blade.jpg",
+        "image": "morgul-blade.jpg",
         "rating": {
             "rating": 4,
             "comment": "Would stab Frodo again. A+"
@@ -265,7 +265,7 @@
         "available": true,
         "vendor": "HomemadeCosplay",
         "price": 40,
-        "image": "/assets/images/nazgul-gauntlets.jpg",
+        "image": "nazgul-gauntlets.jpg",
         "rating": {
             "rating": 5,
             "comment": "Makes me look so much more evil than it should."
@@ -281,7 +281,7 @@
         "available": true,
         "vendor": "EasyHandArt",
         "price": 50,
-        "image": "/assets/images/black-widow-adult.jpg",
+        "image": "black-widow-adult.jpg",
         "rating": {
             "rating": 4,
             "comment": "It got tighter since last I wore this."
@@ -297,7 +297,7 @@
         "available": true,
         "vendor": "OmiPrincess",
         "price": 50,
-        "image": "/assets/images/cloud-strife-adult.jpg",
+        "image": "cloud-strife-adult.jpg",
         "rating": {
             "rating": 4,
             "comment": "A little loose in some places, but overall, great quality"
@@ -313,7 +313,7 @@
         "available": true,
         "vendor": "EpicCostume",
         "price": 20,
-        "image": "/assets/images/super-mario-kids.jpg",
+        "image": "super-mario-kids.jpg",
         "rating": {
             "rating": 4,
             "comment": "Son loved it!"
@@ -329,7 +329,7 @@
         "available": true,
         "vendor": "VGCosplays",
         "price": 30,
-        "image": "/assets/images/princess-peach.jpg",
+        "image": "princess-peach.jpg",
         "rating": {
             "rating": 4,
             "comment": "I AM SO PINK! I LOVE IT!!!!"
@@ -345,7 +345,7 @@
         "available": true,
         "vendor": "ToyStation",
         "price": 20,
-        "image": "/assets/images/white-power-ranger.jpg",
+        "image": "white-power-ranger.jpg",
         "rating": {
             "rating": 4,
             "comment": "Feel the power, of the mighty morphin power rangers!"
@@ -361,7 +361,7 @@
         "available": true,
         "vendor": "SeriousCosplays",
         "price": 100,
-        "image": "/assets/images/red-mage-adult.jpg",
+        "image": "red-mage-adult.jpg",
         "rating": {
             "rating": 5,
             "comment": "Unmatched quality! A+++"
@@ -377,7 +377,7 @@
         "available": true,
         "vendor": "SeriousCosplays",
         "price": 100,
-        "image": "/assets/images/xena-warrior-princess.jpg",
+        "image": "xena-warrior-princess.jpg",
         "rating": {
             "rating": 5,
             "comment": "took a little while to get here, but it was worth the wait! very solid and sturdy, paint job is amazing, everything looks pretty good! only thing was the ribbon was a little short for me but its probably because my face is chubbier and its an easy fix. would recommend!"
@@ -393,7 +393,7 @@
         "available": true,
         "vendor": "FFCosplays",
         "price": 50,
-        "image": "/assets/images/tifa-lockheart-adult.jpg",
+        "image": "tifa-lockheart-adult.jpg",
         "rating": {
             "rating": 5,
             "comment": "Vary well made! Quality material and fits perfectly!"
@@ -409,7 +409,7 @@
         "available": true,
         "vendor": "CosplayCity",
         "price": 75,
-        "image": "/assets/images/wolverine-adult.jpg",
+        "image": "wolverine-adult.jpg",
         "rating": {
             "rating": 4,
             "comment": "Don't mess with me bub!"
@@ -425,7 +425,7 @@
         "available": true,
         "vendor": "CosplayCity",
         "price": 50,
-        "image": "/assets/images/rogue-adult-female.jpg",
+        "image": "rogue-adult-female.jpg",
         "rating": {
             "rating": 4,
             "comment": "Careful when you take off your gloves. You might hurt someone unintentionally."
@@ -441,7 +441,7 @@
         "available": true,
         "vendor": "StormtrooperStore",
         "price": 100,
-        "image": "/assets/images/storm-trooper.jpg",
+        "image": "storm-trooper.jpg",
         "rating": {
             "rating": 5,
             "comment": "I still can't seem to hit the broadside of the barn"
@@ -457,7 +457,7 @@
         "available": true,
         "vendor": "AtelierPucci",
         "price": 200,
-        "image": "/assets/images/padme-picnic-dress.jpg",
+        "image": "padme-picnic-dress.jpg",
         "rating": {
             "rating": 5,
             "comment": "Loved the detail and quality!"
@@ -473,7 +473,7 @@
         "available": true,
         "vendor": "SWCosplay",
         "price": 100,
-        "image": "/assets/images/luke-jedi-brown.jpg",
+        "image": "luke-jedi-brown.jpg",
         "rating": {
             "rating": 5,
             "comment": "May the force be with you"

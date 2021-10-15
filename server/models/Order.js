@@ -1,16 +1,32 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+
 const { itemSchema } = require("./Items");
 
+// const orderSchema = new Schema({
+//   startDate: {
+//     type: Date,
+//     default: Date.now(),
+//   },
+//   endDate: Date,
+//   items: [itemSchema],
+// });
 const orderSchema = new Schema({
-  startDate: {
+  purchaseDate: {
     type: Date,
-    default: Date.now(),
+    default: Date.now
   },
-  endDate: Date,
-  items: [itemSchema],
+  endDate: { type: Date },
+  products: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Items'
+    }
+  ]
 });
 
-// hash user password
+
+
 orderSchema.pre("save", async function (next) {
   if (this.isNew) {
     let dueByDate = new Date();
@@ -21,6 +37,8 @@ orderSchema.pre("save", async function (next) {
   next();
 });
 
-const Order = model("Order", orderSchema);
+const Order = mongoose.model('Order', orderSchema);
 
-module.exports = { Order, orderSchema };
+
+
+module.exports = Order;

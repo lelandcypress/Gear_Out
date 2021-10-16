@@ -9,16 +9,9 @@
 .header-body-font {
   font-family: "Lato", sans-serif;
 }
-.jumbotron-img {
-  background-image: url(https://www.pexels.com/photo/person-in-white-dress-standing-on-grass-field-5635105/);
-}
 
 .wt {
   color: black;
-}
-
-.jumbo {
-  min-height: "720px";
 }
 
 .jumbo-shadow {

@@ -51,12 +51,18 @@ const UserProfile = (props) => {
             <Card.Text>Username: {user.username}</Card.Text>
             <Card.Text>Email: {user.email}</Card.Text>
           </Card.Body>
-          <div className="border custom-stack">
-            <p>User Reviews</p>
-            <div>5 out of 5 Stars</div>
-            <div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Card>
+        <Card className="m-3 profile-shadow">
+          <div className="border">
+            <Card.Header>
+              <h3>User Reviews</h3>
+            </Card.Header>
+            <div className="m-3">
+              <Card.Text>5 out of 5 Stars</Card.Text>
+              <Card.Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </Card.Text>
             </div>
           </div>
         </Card>

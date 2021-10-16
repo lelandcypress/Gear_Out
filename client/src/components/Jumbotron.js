@@ -15,7 +15,7 @@ export default function JumbotronComp() {
         style={{
           backgroundImage: `url(${bgimage})`,
           backgroundSize: "cover",
-          height: "710px",
+          height: "850px",
         }}
       >
         <Container>

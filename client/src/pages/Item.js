@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
-
-import { useMutation } from "@apollo/client";
-import {
-  MUTATION_ADD_ITEM_TO_ORDER,
-  MUTATION_TOGGLE_AVAILABILITY,
-} from "../utils/mutations";
 import { QUERY_SINGLE_ITEM } from "../utils/queries";
-import { Redirect, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import { useStoreContext } from "../utils/GlobalState";
+import { idbPromise } from "../utils/helpers";
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
-import { useStoreContext } from "../utils/GlobalState";
-import { idbPromise } from "../utils/helpers";
-import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
-import { pluralize } from "../utils/helpers";
 import "./Item.css";
 
-const Item = ({ props }) => {
+const Item = () => {
   const [state, dispatch] = useStoreContext();
   const id = useParams();
   const [item, setItem] = useState(null);
@@ -35,8 +28,7 @@ const Item = ({ props }) => {
       setItem(data.getOneItem);
     }
   }, [data, loading]);
-  // const [addItemToOrder, { error }] = useMutation(MUTATION_ADD_ITEM_TO_ORDER);
-  // const [toggleAvailability] = useMutation(MUTATION_TOGGLE_AVAILABILITY);
+
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === id._id);
     if (itemInCart) {
@@ -57,6 +49,7 @@ const Item = ({ props }) => {
       idbPromise("cart", "put", { ...item, purchaseQuantity: 1 });
     }
   };
+
   const loadComponent = () => {
     return (
       <>
@@ -64,7 +57,7 @@ const Item = ({ props }) => {
       </>
     );
   };
-  console.log(item);
+
   return (
     <Container className="mt-3 mb-5">
       {!loading && item !== null ? (
@@ -94,16 +87,22 @@ const Item = ({ props }) => {
           </Col>
           <Col>
             <Card className="item-shadow">
-              <Card.Header>Description</Card.Header>
+              <Card.Header>
+                <h2>Description</h2>
+              </Card.Header>
               <Card.Body>{item.longDescription}</Card.Body>
+            </Card>
+            <Card className="mt-4 item-shadow">
               <div>
-                <div className="border custom-stack">
-                  <h2>User Reviews</h2>
+                <div className="border w-100">
+                  <Card.Header>
+                    <h2>User Reviews</h2>
+                  </Card.Header>
 
                   {Array.isArray(item.rating) && item.rating.length > 0
                     ? item.rating.map((rating, index) => {
                         return (
-                          <div key={index}>
+                          <div className="p-3" key={index}>
                             <h4>{rating.rating} out of 5 Stars</h4>
                             <div>{rating.comment}</div>
                           </div>

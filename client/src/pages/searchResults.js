@@ -1,13 +1,10 @@
-// import any major components, such as card
-import Card from "../components/Card";
 import { useParams, Redirect } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORY_SEARCH } from "../utils/queries";
-import { Container } from "react-bootstrap";
+import Card from "../components/Card";
 import Fade from "react-reveal/Fade";
 
-// Props if we need them
-const SearchResults = ({ props }) => {
+const SearchResults = () => {
   const { query } = useParams();
 
   const { loading, data } = useQuery(QUERY_CATEGORY_SEARCH, {
@@ -24,7 +21,7 @@ const SearchResults = ({ props }) => {
     );
   }
 
-  if (!loading && !data) {
+  if (!loading && !results.length) {
     return <Redirect to="/404" />;
   }
 
@@ -34,8 +31,8 @@ const SearchResults = ({ props }) => {
         <div className="row">
           {results.map((item) => {
             return (
-              <Fade left>
-                <div className="col-lg-4 mx-auto m-4" key={item._id}>
+              <Fade left key={item._id}>
+                <div className="col-lg-4 mx-auto m-4">
                   <Card
                     previous={"SEARCH"}
                     itemLink={item._id}

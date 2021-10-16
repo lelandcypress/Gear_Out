@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import "../components/Contact.css";
+import { useState } from "react";
 import { validateEmail } from "../utils/helpers";
+import "../components/Contact.css";
 
-function Contact() {
+const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -23,14 +23,11 @@ function Contact() {
   };
 
   const handleFormSubmit = (e) => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
     e.preventDefault();
 
     if (!validateEmail(email)) {
       setErrorMessage("Please enter valid email address");
-      // We want to exit out of this code block if something is wrong so that the user can correct it
       return;
-      // Then we check to see if the password is not valid. If so, we set an error message regarding the password.
     }
 
     setName("");
@@ -97,4 +94,5 @@ function Contact() {
     </div>
   );
 }
+
 export default Contact;

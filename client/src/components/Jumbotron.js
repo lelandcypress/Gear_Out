@@ -1,12 +1,9 @@
 import Jumbotron from "react-bootstrap/Jumbotron";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import "./Jumbotron.css";
 import bgimage from "./images/bgimg-min.jpg";
 
-import React from "react";
-
-export default function JumbotronComp() {
+ const JumbotronComp = () => {
   return (
     <>
       <Jumbotron
@@ -15,26 +12,23 @@ export default function JumbotronComp() {
         style={{
           backgroundImage: `url(${bgimage})`,
           backgroundSize: "cover",
-          maxHeight: "500px",
+          height: "850px",
         }}
       >
         <Container>
           <div className="text-center wt p-5 header-font">
             <h1 className="header-font">Welcome to Gear-Out!</h1>
-            {/* <div className="vertical mt-5 wt welcome p-3 header-body-font">
-              <p>Tired of cheap party city costumes? Us too!</p>
-              <p>
-                Gear-Out is your one stop shop for all your premium costume and
-                cosplay needs.
-              </p>
-              <p>
-                Rent a costume from one of our verified renters and enter the
-                world of high-end costumery.
-              </p>
-            </div> */}
           </div>
         </Container>
+        <div className="invis-div-arrow"></div>
+        <div className="text-center">
+          <div className="arrow-circle">
+            <img className="p-2 white" src="/images/down.png"></img>
+          </div>
+        </div>
       </Jumbotron>
     </>
   );
 }
+
+export default JumbotronComp;

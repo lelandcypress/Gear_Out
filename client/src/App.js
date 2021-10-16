@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   ApolloClient,
@@ -6,16 +5,13 @@ import {
   createHttpLink,
   InMemoryCache,
 } from "@apollo/client";
-import "./App.css";
 import { setContext } from "@apollo/client/link/context";
-import "bootstrap/dist/css/bootstrap.min.css";
-// Import Header and Footer
+import { StoreProvider } from "./utils/GlobalState";
 import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
-import HomePage from "./pages/HomePage";
+import Homepage from "./pages/Homepage";
 import SearchResults from "./pages/SearchResults";
-import { StoreProvider } from "./utils/GlobalState";
 import LoginSignup from "./pages/LoginSignup";
 import UserProfile from "./pages/User";
 import Cart from "./components/Cart";
@@ -23,6 +19,8 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Success from './pages/Success';
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -43,7 +41,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function App() {
+const App = () => {
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -52,8 +50,7 @@ function App() {
             <Navigation />
             <Cart />
             <Switch>
-              <Route exact path="/" component={HomePage} />
-
+              <Route exact path="/" component={Homepage} />
               <Route exact path="/search/:query" component={SearchResults} />
               <Route exact path="/items/:id" component={Item} />
               <Route exact path="/login" component={LoginSignup} />

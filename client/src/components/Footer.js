@@ -4,7 +4,7 @@ import NavbarBrand from "react-bootstrap/NavbarBrand";
 import Nav from "react-bootstrap/Nav";
 import "./Navbar.css";
 
-function Footer() {
+const Footer = () => {
   return (
     <div className="mt-3 fixed-bottom">
       <Navbar bg="dark" variant="dark">

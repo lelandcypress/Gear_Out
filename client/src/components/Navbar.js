@@ -1,16 +1,15 @@
+import { useState } from "react";
+import Auth from "../utils/auth-client";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import LinkContainer from "react-router-bootstrap";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import Auth from "../utils/auth-client";
 
-function Navigation() {
+
+const Navigation = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
@@ -21,7 +20,6 @@ function Navigation() {
             Find Your Gear!
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-
           <Navbar.Collapse id="responsive-navbar-nav">
             <Form className="d-flex w-100">
               <FormControl

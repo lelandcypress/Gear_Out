@@ -1,12 +1,11 @@
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { MUTATION_ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth-client";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
-function VerticalSignUp(props) {
-  // SIGNUP LOGIC
+const VerticalSignUp = (props) => {
   const [signupUserFormData, setSignupUserFormData] = useState({
     username: "",
     email: "",
@@ -23,8 +22,6 @@ function VerticalSignUp(props) {
     event.preventDefault();
 
     try {
-      console.log(signupUserFormData);
-
       const response = await signUp({
         variables: {
           username: signupUserFormData.username,
@@ -33,7 +30,7 @@ function VerticalSignUp(props) {
         },
       });
 
-      const { token, user } = response.data.addUser;
+      const { token } = response.data.addUser;
       Auth.login(token);
     } catch (err) {
       console.error(err);

@@ -42,41 +42,48 @@ const UserProfile = (props) => {
   };
 
   return (
-    <Container>
-      <Row className="m-2">
-        <Col>
-          <Card border="dark">
+    <Row>
+      <Col>
+        <Card className="m-3 profile-shadow">
+          <Card.Header>
+            <h3>Profile</h3>
+          </Card.Header>
+          <Card.Body>
+            <Card.Text>Username: {user.username}</Card.Text>
+            <Card.Text>Email: {user.email}</Card.Text>
+          </Card.Body>
+        </Card>
+        <Card className="m-3 profile-shadow">
+          <div className="border">
             <Card.Header>
-              <h3>PROFILE</h3>
+              <h3>User Reviews</h3>
             </Card.Header>
-            <Card.Body>
-              <Card.Text>Username:{user.username}</Card.Text>
-              <Card.Text>Email: {user.email}</Card.Text>
-            </Card.Body>
-
-            <div className="border custom-stack">
-              <p>User Reviews</p>
-              <div>5 out of 5 Stars</div>
-              <div>
+            <div className="m-3">
+              <Card.Text>5 out of 5 Stars</Card.Text>
+              <Card.Text>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
+              </Card.Text>
             </div>
-          </Card>
-        </Col>
-        <Col>
-          <Card border="dark">
-            <Card.Header>
-              <h3>Orders</h3>{" "}
-            </Card.Header>
-            {user.orders ? (
-              <>
-                {user.orders.map((order) => {
-                  return (
-                    <Card.Body>
-                      <p>Rental Start:{order.startDate}</p>
-                      <p>Due Back:{order.endDate}</p>
+          </div>
+        </Card>
+      </Col>
+      <Col>
+        <Card className="m-3 profile-shadow">
+          <Card.Header>
+            <h3>Orders</h3>{" "}
+          </Card.Header>
+          {user.orders ? (
+            <>
+              {user.orders.map((order) => {
+                return (
+                  <Card.Body>
+                    <p>Rental Start:{order.startDate}</p>
+                    <p>Due Back:{order.endDate}</p>
 
+                    {order.items.map((item) => (
+                      <p>{item.name}</p>
+                    ))}
                       {order.items.map((item) => (
                         <p>{item.name}</p>
                       ))}

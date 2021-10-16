@@ -1,12 +1,9 @@
 import Jumbotron from "react-bootstrap/Jumbotron";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import "./Jumbotron.css";
 import bgimage from "./images/bgimg-min.jpg";
 
-import React from "react";
-
-export default function JumbotronComp() {
+ const JumbotronComp = () => {
   return (
     <>
       <Jumbotron
@@ -33,3 +30,5 @@ export default function JumbotronComp() {
     </>
   );
 }
+
+export default JumbotronComp;

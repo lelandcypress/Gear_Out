@@ -1,16 +1,14 @@
-import Jumbotron from "../components/Jumbotron";
-import Card from "../components/Card";
 import { useQuery } from "@apollo/client";
 import { QUERY_FEATURED_ITEMS } from "../utils/queries";
-import React from "react";
 import Fade from "react-reveal/Fade";
+import Jumbotron from "../components/Jumbotron";
+import Card from "../components/Card";
 import "./Homepage.css";
+
 function Homepage() {
   const { loading, data } = useQuery(QUERY_FEATURED_ITEMS);
 
   const results = data?.featuredItems || {};
-
-  console.log(results);
 
   if (loading) {
     return (
@@ -52,8 +50,8 @@ function Homepage() {
         <div className="row">
           {results.map((item) => {
             return (
-              <Fade left>
-                <div className="col-lg-4 mx-auto mb-4" key={item._id}>
+              <Fade left key={item._id}>
+                <div className="col-lg-4 mx-auto mb-4">
                   <Card
                     previous={"HOME"}
                     itemLink={item._id}

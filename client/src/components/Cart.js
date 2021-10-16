@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../utils/queries';
 import { idbPromise } from '../utils/helpers';
-import CartItem from './CartItem';
 import Auth from '../utils/auth-client';
 import { useStoreContext } from '../utils/GlobalState';
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../utils/actions';
+import CartItem from './CartItem';
 import './Cart.css';
 import  cartLogo from './cart.svg';
 
@@ -14,18 +14,13 @@ import  cartLogo from './cart.svg';
 // Use this below if one above does not work
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
-
-
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
-  console.log("line 21: ", state)
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
  
   useEffect(() => {
-  console.log("line 25 data: " , data);
     if (data) {
       stripePromise.then((res) => {
-        console.log(res);
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
     }
@@ -56,18 +51,15 @@ const Cart = () => {
 
   function submitCheckout() {
     const itemIds = [];
-    console.log(state.cart);
     state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
         itemIds.push(item._id);
-        console.log("itemIds: ", itemIds);
       }
     });
 
     getCheckout({
       variables: { items: itemIds },
     });
-    console.log(data);
   }
 
   if (!state.cartOpen) {
@@ -75,7 +67,6 @@ const Cart = () => {
       <div className="cart-closed" onClick={toggleCart}>
         <span role="img" aria-label="trash">
           <img src={cartLogo} alt="Gear-Out Cart Logo"/>
-
         </span>
       </div>
     );

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Card.css";
-import Image from "react-bootstrap/Image";
 
 const Card = (props) => {
   let cardLink = "";
@@ -35,11 +34,8 @@ const Card = (props) => {
           </div>
           <div className="card-body">
             <h4>{props.shortDesc}</h4>
-
             {props.available ? <p>In Stock</p> : <p>Out of Stock</p>}
-
             <h4>${props.price}</h4>
-            {props.rating ? <p>{props.rating.map((rating) => {})}</p> : null}
           </div>
         </Link>
       </div>

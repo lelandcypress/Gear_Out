@@ -11,6 +11,8 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./User.css";
+import Container from "react-bootstrap/Container";
+
 
 const UserProfile = () => {
   const [returnItem] = useMutation(MUTATION_RETURN_ITEM);
@@ -93,8 +95,9 @@ const UserProfile = () => {
           </Card>
         </Col>
       </Row>
-    </Container>
   );
+ 
 };
+
 
 export default UserProfile;

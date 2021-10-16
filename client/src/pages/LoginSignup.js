@@ -108,8 +108,8 @@ const LoginSignup = () => {
             </div>
             <div className="col-sm-6 px-0 d-none d-sm-block">
               <img
-                alt=''
-                src="./assets/images/login-bg.jpg"
+                alt=""
+                src="./images/login-bg.jpg"
                 className="w-100 vh-100 big-img"
               />
             </div>

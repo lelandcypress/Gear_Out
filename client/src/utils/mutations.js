@@ -21,17 +21,24 @@ export const MUTATION_LOGIN = gql`
     }
   }
 `;
-
-export const MUTATION_ADD_ITEM_TO_ORDER = gql`
-  mutation addItemToOrder($order: itemToOrder!) {
-    addItemToOrder(order: $order) {
-      user {
+// Needs to be looked at, not currently functioning
+export const ADD_ORDER = gql`
+  mutation addOrder($products: [ID]!) {
+    addOrder(products: $products) {
+      purchaseDate
+      products {
         _id
+        name
+        description
+        price
+        quantity
+        category {
+          name
+        }
       }
     }
   }
 `;
-
 export const MUTATION_RETURN_ITEM = gql`
   mutation returnItem($itemId: ID!) {
     returnItem(itemId: $itemId) {

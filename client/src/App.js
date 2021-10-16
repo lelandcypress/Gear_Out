@@ -17,6 +17,8 @@ import UserProfile from "./pages/User";
 import Cart from "./components/Cart";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Success from './pages/Success';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -52,6 +54,7 @@ const App = () => {
               <Route exact path="/search/:query" component={SearchResults} />
               <Route exact path="/items/:id" component={Item} />
               <Route exact path="/login" component={LoginSignup} />
+              <Route exact path="/success/:id" component={Success} />
               <Route exact path="/profile" component={UserProfile} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/about" component={About} />

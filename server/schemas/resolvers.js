@@ -71,6 +71,14 @@ const resolvers = {
 
       return { session: session.id };
     },
+    getOrder: async (parent, args, context) => {
+      console.log(args);
+      if (args._id) {
+        return Order.findOne({ _id: args._id});
+      }
+
+      throw new AuthenticationError("Wrong Order#");
+    },
   },
 
   Mutation: {
@@ -94,16 +102,29 @@ const resolvers = {
       return { token, user };
     },
 
-    addOrder: async (parent, args, context) => {
-      console.log("line 98: ", args)
+    // addOrder: async (parent, args, context) => {
+    //   console.log("line 98: ", args);
+    //   // console.log( "line 99: ", context.user);
+    //   if (args._id) {
+    //     return await User.findOneAndUpdate(
+    //       { _id: args._id },
+    //       { $addToSet: { orders: args } },
+    //       { new: true }
+    //     );
+    //   }
+    //   throw new AuthenticationError("You need to log in");
+    // },
+    addOrder: async (parent, { products }, context) => {
+      console.log(context);
       if (context.user) {
-        return await User.findbyIdAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { orders: args } },
-          { new: true }
-        );
+        const order = new Order({ products });
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+
+        return order;
       }
-      throw new AuthenticationError("You need to log in");
+
+      throw new AuthenticationError('Not logged in');
     },
     returnItem: async (parent, args, context) => {
       if (context.user) {

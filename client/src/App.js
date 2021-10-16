@@ -13,11 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navbar";
 import Footer from "./components/Footer";
 import Item from "./pages/Item";
-<<<<<<< HEAD
-import Homepage from "./pages/Homepage";
-=======
 import HomePage from "./pages/HomePage";
->>>>>>> master
 import SearchResults from "./pages/SearchResults";
 import { StoreProvider } from "./utils/GlobalState";
 import LoginSignup from "./pages/LoginSignup";

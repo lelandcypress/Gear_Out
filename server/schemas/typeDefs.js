@@ -5,7 +5,7 @@ const typeDefs = gql`
     _id: ID!
     purchaseDate: String
     endDate: String
-    items: [Items]
+    products: [Items]
   }
 
   type Items {
@@ -54,7 +54,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
-
+    getOrder: [Items]
     getOneItem(_id: String): Items
  
 
@@ -69,7 +69,8 @@ const typeDefs = gql`
 
     login(email: String!, password: String!): Auth
 
-    addOrder(orders: ID): User
+    # addOrder(_id: String!, orders: String!): User
+    addOrder(_id: String!, products: [ID]!): Order
 
     returnItem(itemId: ID!): User
 

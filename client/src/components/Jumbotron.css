@@ -17,13 +17,8 @@
   color: black;
 }
 
-.welcome {
-  border: 1px;
-  border-style: solid;
-  display: inline-block;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+.jumbo {
+  min-height: "720px";
 }
 
 .jumbo-shadow {
@@ -46,4 +41,20 @@
   .header-font {
     font-size: 100%;
   }
+}
+
+.invis-div-arrow {
+  height: 160px;
+
+  width: 100%;
+}
+
+.arrow-circle {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 30px;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  opacity: 75%;
 }

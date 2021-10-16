@@ -15,25 +15,20 @@ export default function JumbotronComp() {
         style={{
           backgroundImage: `url(${bgimage})`,
           backgroundSize: "cover",
-          maxHeight: "500px",
+          height: "710px",
         }}
       >
         <Container>
           <div className="text-center wt p-5 header-font">
             <h1 className="header-font">Welcome to Gear-Out!</h1>
-            {/* <div className="vertical mt-5 wt welcome p-3 header-body-font">
-              <p>Tired of cheap party city costumes? Us too!</p>
-              <p>
-                Gear-Out is your one stop shop for all your premium costume and
-                cosplay needs.
-              </p>
-              <p>
-                Rent a costume from one of our verified renters and enter the
-                world of high-end costumery.
-              </p>
-            </div> */}
           </div>
         </Container>
+        <div className="invis-div-arrow"></div>
+        <div className="text-center">
+          <div className="arrow-circle">
+            <img className="p-2 white" src="/images/down.png"></img>
+          </div>
+        </div>
       </Jumbotron>
     </>
   );

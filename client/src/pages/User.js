@@ -14,6 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import "./User.css";
+import Container from "react-bootstrap/Container";
 
 const UserProfile = (props) => {
   const [returnItem, { error }] = useMutation(MUTATION_RETURN_ITEM);
@@ -83,18 +84,20 @@ const UserProfile = (props) => {
                     {order.items.map((item) => (
                       <p>{item.name}</p>
                     ))}
+                      {order.items.map((item) => (
+                        <p>{item.name}</p>
+                      ))}
 
-                    <Button onClick={handleReturn}>Return</Button>
-                  </Card.Body>
-                );
-              })}
-            </>
-          ) : null}
-
-          <Button onClick={handleReturn}>Return</Button>
-        </Card>
-      </Col>
-    </Row>
+                      <Button onClick={handleReturn}>Return</Button>
+                    </Card.Body>
+                  );
+                })}
+              </>
+            ) : null}
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

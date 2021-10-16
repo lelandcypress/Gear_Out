@@ -1,0 +1,29 @@
+.invis-div-top {
+  height: 100px;
+
+  width: 100%;
+}
+
+.invis-div-bottom {
+  height: 150px;
+
+  width: 100%;
+}
+
+.invis-div-content {
+  height: 80px;
+
+  width: 100%;
+}
+
+/* .border {
+  display: inline-block;
+  border: 1px solid black;
+} */
+
+.border {
+  display: inline-block;
+  border: 1px solid white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 5px;
+}

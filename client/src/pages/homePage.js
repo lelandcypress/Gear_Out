@@ -3,6 +3,7 @@ import { QUERY_FEATURED_ITEMS } from "../utils/queries";
 import Fade from "react-reveal/Fade";
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
+import "./Homepage.css";
 
 function Homepage() {
   const { loading, data } = useQuery(QUERY_FEATURED_ITEMS);
@@ -21,16 +22,30 @@ function Homepage() {
   return (
     <div className="pb-5">
       <Jumbotron />
+      <div className="invis-div-top"></div>
       <div className="container">
-        <div className="text-center">
-          <h2 className="m-4">Looking for a costume for a convention?</h2>
-          <h2 className="m-4">Or maybe a halloween party?</h2>
-          <h2 className="m-4">Even just for your own enjoyment?</h2>
-          <h2 className="m-4">
-            Gear-Out is your one stop costume shop for all your creative needs.
-          </h2>
+        <div className="container text-center border">
+          <Fade right>
+            <h2 className="m-4">Looking For A Convention Outfit?</h2>
+          </Fade>
+          <Fade left>
+            <h2 className="m-4">Halloween Party Regalia?</h2>
+          </Fade>
+          <Fade right>
+            <h2 className="m-4">Movie Props?</h2>
+          </Fade>
+          <Fade left>
+            <h2 className="m-4">
+              Gear-Out Is Your One Stop Shop For All Your Costume Needs.
+            </h2>
+          </Fade>
         </div>
       </div>
+      <div className="invis-div-bottom"></div>
+      <div className="text-center">
+        <h2 className="text-center border p-3">Our Costumes</h2>
+      </div>
+      <div className="invis-div-content"></div>
       <div className="container-fluid text-center">
         <div className="row">
           {results.map((item) => {

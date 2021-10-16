@@ -87,16 +87,22 @@ const Item = () => {
           </Col>
           <Col>
             <Card className="item-shadow">
-              <Card.Header>Description</Card.Header>
+              <Card.Header>
+                <h2>Description</h2>
+              </Card.Header>
               <Card.Body>{item.longDescription}</Card.Body>
+            </Card>
+            <Card className="mt-4 item-shadow">
               <div>
-                <div className="border custom-stack">
-                  <h2>User Reviews</h2>
+                <div className="border w-100">
+                  <Card.Header>
+                    <h2>User Reviews</h2>
+                  </Card.Header>
 
                   {Array.isArray(item.rating) && item.rating.length > 0
                     ? item.rating.map((rating, index) => {
                         return (
-                          <div key={index}>
+                          <div className="p-3" key={index}>
                             <h4>{rating.rating} out of 5 Stars</h4>
                             <div>{rating.comment}</div>
                           </div>

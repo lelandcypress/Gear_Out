@@ -12,7 +12,7 @@ import bgimage from "./images/bgimg-min.jpg";
         style={{
           backgroundImage: `url(${bgimage})`,
           backgroundSize: "cover",
-          maxHeight: "500px",
+          height: "850px",
         }}
       >
         <Container>
@@ -20,6 +20,12 @@ import bgimage from "./images/bgimg-min.jpg";
             <h1 className="header-font">Welcome to Gear-Out!</h1>
           </div>
         </Container>
+        <div className="invis-div-arrow"></div>
+        <div className="text-center">
+          <div className="arrow-circle">
+            <img className="p-2 white" src="/images/down.png"></img>
+          </div>
+        </div>
       </Jumbotron>
     </>
   );

@@ -39,8 +39,7 @@ const UserProfile = () => {
   };
 
   return (
-    <Container>
-    <Row className="m-2">
+    <Row>
       <Col>
         <Card border="dark">
           <Card.Header>
@@ -50,13 +49,18 @@ const UserProfile = () => {
             <Card.Text>Username: {user.username}</Card.Text>
             <Card.Text>Email: {user.email}</Card.Text>
           </Card.Body>
-
-          <div className="border custom-stack">
-            <p>User Reviews</p>
-            <div>5 out of 5 Stars</div>
-            <div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Card>
+        <Card className="m-3 profile-shadow">
+          <div className="border">
+            <Card.Header>
+              <h3>User Reviews</h3>
+            </Card.Header>
+            <div className="m-3">
+              <Card.Text>5 out of 5 Stars</Card.Text>
+              <Card.Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </Card.Text>
             </div>
           </div>
         </Card>
@@ -76,20 +80,19 @@ const UserProfile = () => {
                     {order.items.map((item) => (
                       <p key={item._id}>{item.name}</p>
                     ))}
+                      {order.items.map((item) => (
+                        <p>{item.name}</p>
+                      ))}
 
-                    <Button onClick={handleReturn}>Return</Button>
-                  </Card.Body>
-                );
-              })}
-            </>
-              )
-              :
-                null
-              }
-          <Button onClick={handleReturn}>Return</Button>
-        </Card>
-      </Col>
-    </Row>
+                      <Button onClick={handleReturn}>Return</Button>
+                    </Card.Body>
+                  );
+                })}
+              </>
+            ) : null}
+          </Card>
+        </Col>
+      </Row>
     </Container>
   );
 };

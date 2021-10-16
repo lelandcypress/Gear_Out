@@ -28,6 +28,7 @@ No installation necessary if accessing this from the customer URL. As of this it
 - GraphQL
 - Redux
 - Stripe
+- JWT
 
 ## Usage
 
@@ -48,13 +49,9 @@ No installation necessary if accessing this from the customer URL. As of this it
 
 ![Stripe](./client/public/images/stripecard.PNG)
 
-6. Manage your returns through your user profile
-
----SCREENSHOT HERE
-
 ## License
 
-MIT ![MIT](./client/public/assets/images/MIT.svg)
+![MIT](./client/public/images/MIT.svg)
 
 ## Contribution
 
@@ -70,7 +67,7 @@ Got questions, or are interested in collaborating?
 
 Github:
 
-https://github.com/PRicoSaint
-https://github.com/radams017
-https://github.com/jcpickens0215
-https://github.com/lelandcypress
+- https://github.com/PRicoSaint
+- https://github.com/radams017
+- https://github.com/jcpickens0215
+- https://github.com/lelandcypress
